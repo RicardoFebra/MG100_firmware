@@ -126,6 +126,18 @@ extern const uint8_t BT510_AD_HEADER[SENSOR_AD_HEADER_SIZE];
 extern const uint8_t BT510_RSP_HEADER[SENSOR_AD_HEADER_SIZE];
 extern const uint8_t BT510_CODED_HEADER[SENSOR_AD_HEADER_SIZE];
 
+/******************************************************************************/
+/* VIBBOARD                                                                   */
+/******************************************************************************/
+
+
+
+/* Bytes used to differentiate advertisement types/sensors. */
+extern const uint8_t VIBBOARD_AD_HEADER[SENSOR_AD_HEADER_SIZE];
+extern const uint8_t VIBBOARD_RSP_HEADER[SENSOR_AD_HEADER_SIZE];
+extern const uint8_t VIBBOARD_CODED_HEADER[SENSOR_AD_HEADER_SIZE];
+
+
 #ifdef __cplusplus
 }
 #endif
