@@ -261,6 +261,7 @@ void main(void)
 #ifdef CONFIG_BLUEGRASS
 	Bluegrass_Initialize(cloudMsgReceiver.pQueue);
 #endif
+	//SensorTask_Initialize(); // [LocalChanges]
 
 	dis_initialize(APP_VERSION_STRING);
 
@@ -280,7 +281,7 @@ void main(void)
 	power_init();
 
 	/* Setup the battery service */
-	battery_svc_init();
+	battery_svc_init(); //24
 
 	/* Initialize the battery management sub-system.
 	 * NOTE: This must be executed after nvInit.
@@ -290,14 +291,14 @@ void main(void)
 	motion_svc_init();
 
 #ifdef CONFIG_LCZ_NFC
-	laird_connectivity_nfc_init();
+	laird_connectivity_nfc_init();	//27
 #endif
 
 #ifdef CONFIG_MCUMGR
-	mcumgr_wrapper_register_subsystems();
+	mcumgr_wrapper_register_subsystems();	//28
 #endif
 
-#ifdef CONFIG_BLUEGRASS
+#ifdef CONFIG_BLUEGRASS	//29
 	rc = aws_svc_init(lteInfo->IMEI);
 	if (rc != 0) {
 		goto exit;
@@ -310,7 +311,7 @@ void main(void)
 	}
 #endif
 
-#ifdef CONFIG_LWM2M
+#ifdef CONFIG_LWM2M	//30
 	ble_lwm2m_service_init();
 #endif
 
@@ -835,9 +836,9 @@ static void lwm2mMsgHandler(void)
 
 	while (rc == 0) {
 		/* Remove sensor/gateway data from queue and send it to cloud. */
+		LOG_DBG("Sending LwM2M data");
 		rc = -EINVAL;
 		Framework_Receive(cloudMsgReceiver.pQueue, &pMsg, K_FOREVER);
-
 		switch (pMsg->header.msgCode) {
 		case FMC_BL654_SENSOR_EVENT: {
 			BL654SensorMsg_t *pBmeMsg = (BL654SensorMsg_t *)pMsg;
@@ -849,6 +850,7 @@ static void lwm2mMsgHandler(void)
 		default:
 			break;
 		}
+		rc = lwm2m_set_bl654_sensor_data(30.02, 45.05, 5000.2);
 		BufferPool_Free(pMsg);
 
 		if (rc != 0) {

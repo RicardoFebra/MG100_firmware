@@ -1,0 +1,164 @@
+[00:00:44.099,060] <inf> net_lwm2m_rd_client: Update Done
+[00:00:44.099,121] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:46.048,156] <inf> modem_hl7800: RSSI (RSRP): -82 SINR: 2
+[00:01:07.388,977] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:01:09.994,445] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:01:09.994,476] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:01:09.994,476] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:01:09.994,476] <inf> net_lwm2m_rd_client: Update Done
+[00:01:09.994,537] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:16.058,258] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 4
+[00:01:31.393,280] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:01:34.869,842] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:01:34.869,873] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:01:34.869,873] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:01:34.869,873] <inf> net_lwm2m_rd_client: Update Done
+[00:01:34.869,934] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:46.068,420] <inf> modem_hl7800: RSSI (RSRP): -82 SINR: 3
+[00:01:55.395,629] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:02:10.395,660] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:02:13.064,422] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:02:13.064,453] <inf> net_lwm2m_rd_client: Update callback (code:4.4)
+[00:02:13.064,453] <err> net_lwm2m_rd_client: Failed with code 4.4. Retrying registration
+[00:02:13.064,514] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:13.220,825] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:02:13.220,886] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coaps://34.209.74.153
+[00:02:16.078,460] <inf> modem_hl7800: RSSI (RSRP): -83 SINR: 0
+[00:02:19.283,050] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:02:21.255,737] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:02:21.255,767] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:02:21.255,767] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:02:21.255,798] <inf> net_lwm2m_rd_client: Registration Done (EP='WYcWfwjoWQ')
+[00:02:21.255,828] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:38.005,279] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:02:39.671,844] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:02:39.671,844] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:02:39.671,875] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:02:39.671,875] <inf> net_lwm2m_rd_client: Update Done
+[00:02:39.671,905] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:46.088,623] <inf> modem_hl7800: RSSI (RSRP): -81 SINR: 4
+[00:03:02.008,666] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:03:04.426,239] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:03:04.426,269] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:03:04.426,269] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:03:04.426,269] <inf> net_lwm2m_rd_client: Update Done
+[00:03:04.426,330] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:16.098,937] <inf> modem_hl7800: RSSI (RSRP): -83 SINR: 1
+[00:03:26.012,115] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:03:28.505,615] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:03:28.505,615] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:03:28.505,645] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:03:28.505,645] <inf> net_lwm2m_rd_client: Update Done
+[00:03:28.505,676] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:46.109,069] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: 3
+[00:03:50.016,448] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:04:05.016,479] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:04:07.940,246] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:04:07.940,277] <inf> net_lwm2m_rd_client: Update callback (code:4.4)
+[00:04:07.940,277] <err> net_lwm2m_rd_client: Failed with code 4.4. Retrying registration
+[00:04:07.940,338] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:08.340,698] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:04:08.340,759] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coaps://34.209.74.153
+[00:04:16.119,415] <inf> modem_hl7800: RSSI (RSRP): -81 SINR: 5
+[00:04:16.385,833] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:04:20.215,759] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:04:20.215,759] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:04:20.215,789] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:04:20.215,789] <inf> net_lwm2m_rd_client: Registration Done (EP='FmoNV8HKrQ')
+[00:04:20.215,850] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:33.106,140] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:04:34.565,643] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:04:34.565,643] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:04:34.565,673] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:04:34.565,673] <inf> net_lwm2m_rd_client: Update Done
+[00:04:34.565,704] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:46.129,547] <inf> modem_hl7800: RSSI (RSRP): -84 SINR: 0
+[00:04:57.109,497] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:05:00.522,064] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:05:00.522,094] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:05:00.522,094] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:05:00.522,094] <inf> net_lwm2m_rd_client: Update Done
+[00:05:00.522,155] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:16.139,709] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: 2
+[00:05:21.111,877] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:05:24.821,441] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:05:24.821,472] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:05:24.821,472] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:05:24.821,472] <inf> net_lwm2m_rd_client: Update Done
+[00:05:24.821,533] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:45.117,279] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:05:46.150,207] <inf> modem_hl7800: RSSI (RSRP): -83 SINR: 1
+[00:05:54.117,340] <inf> modem_hl7800: Network State: 1 HOME_NETWORK
+[00:05:54.621,734] <inf> modem_hl7800: Operator: 0,0,"MEO",9
+[00:05:54.652,038] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: -3
+[00:05:54.787,933] <dbg> oob_lte.iface_ready_evt_handler: LTE is ready!
+[00:06:00.117,279] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:06:02.363,037] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:06:02.363,067] <inf> net_lwm2m_rd_client: Update callback (code:4.4)
+[00:06:02.363,067] <err> net_lwm2m_rd_client: Failed with code 4.4. Retrying registration
+[00:06:02.363,128] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:02.440,460] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:06:02.440,521] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coaps://34.209.74.153
+[00:06:08.489,654] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:06:10.621,307] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:06:10.621,337] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:06:10.621,337] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:06:10.621,368] <inf> net_lwm2m_rd_client: Registration Done (EP='YvBQ29y6G3')
+[00:06:10.621,398] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:24.662,170] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: -3
+[00:06:27.210,937] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:06:28.923,431] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:06:28.923,431] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:06:28.923,461] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:06:28.923,461] <inf> net_lwm2m_rd_client: Update Done
+[00:06:28.923,492] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:51.213,287] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:06:54.671,905] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: -4
+[00:07:06.213,317] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:07:06.998,535] <inf> modem_hl7800: Network State: 1 HOME_NETWORK
+[00:07:07.503,234] <inf> modem_hl7800: Operator: 0,0,"MEO",9
+[00:07:07.533,508] <inf> modem_hl7800: RSSI (RSRP): -87 SINR: -6
+[00:07:07.667,633] <dbg> oob_lte.iface_ready_evt_handler: LTE is ready!
+[00:07:36.181,640] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:07:37.544,281] <inf> modem_hl7800: RSSI (RSRP): -88 SINR: -2
+[00:07:39.103,576] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:07:39.103,607] <inf> net_lwm2m_rd_client: Update callback (code:4.4)
+[00:07:39.103,607] <err> net_lwm2m_rd_client: Failed with code 4.4. Retrying registration
+[00:07:39.103,668] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:39.544,982] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:07:39.545,043] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coaps://34.209.74.153
+[00:07:45.336,151] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:07:47.343,841] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:07:47.343,872] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:07:47.343,872] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:07:47.343,902] <inf> net_lwm2m_rd_client: Registration Done (EP='gtZazpudx6')
+[00:07:47.343,933] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:04.058,441] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:08:05.709,930] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:08:05.709,930] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:08:05.709,960] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:08:05.709,960] <inf> net_lwm2m_rd_client: Update Done
+[00:08:05.709,991] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:07.554,504] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: -1
+[00:08:28.058,807] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:08:37.564,208] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: -1
+[00:08:43.058,837] <inf> net_lwm2m_engine: Resending message: 0x2000e188
+[00:08:45.631,744] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:08:45.631,774] <inf> net_lwm2m_rd_client: Update callback (code:4.4)
+[00:08:45.631,774] <err> net_lwm2m_rd_client: Failed with code 4.4. Retrying registration
+[00:08:45.631,805] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:45.883,056] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:08:45.883,087] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coaps://34.209.74.153
+[00:08:54.174,224] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:08:55.853,912] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:08:55.853,942] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:08:55.853,942] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:08:55.853,973] <inf> net_lwm2m_rd_client: Registration Done (EP='WdxkjysQXh')
+[00:08:55.854,003] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:07.574,523] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: -1
+[00:09:10.393,493] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [34.209.74.153]
+[00:09:12.238,983] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [34.209.74.153]
+[00:09:12.239,013] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:09:12.239,013] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:09:12.239,013] <inf> net_lwm2m_rd_client: Update Done
+[00:09:12.239,074] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed

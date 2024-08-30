@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/LairdCP/MG100_firmware/releases/
+HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/286608843/d7612780-4f3d-11eb-96b9-3796c5df2ad8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240813%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240813T165804Z&X-Amz-Expires=300&X-Amz-Signature=ce3e7dd388d54b61cf801f0bf56cfe4f75390ea1de1ed9e7fc26146456707d3e&X-Amz-SignedHeaders=host&actor_id=78124022&key_id=0&repo_id=286608843&response-content-disposition=attachment%3B%20filename%3D480-00070-R3.0.2.1608326466_LTE-M_full_image.hex&response-content-type=application%2Foctet-stream
