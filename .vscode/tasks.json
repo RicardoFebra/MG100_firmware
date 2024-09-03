@@ -38,7 +38,7 @@
     {
       "label": "flash app",
       "type": "shell",
-      "command": "west flash -d ${workspaceRoot}/build/${input:app}",
+      "command": "nrfjprog --eraseall && west flash -d ${workspaceRoot}/build/${input:app}",
       "windows": {
         "command": "west flash -d ${workspaceRoot}\\build\\${input:app}"
       },
