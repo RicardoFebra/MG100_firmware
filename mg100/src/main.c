@@ -833,12 +833,13 @@ static void lwm2mMsgHandler(void)
 {
 	int rc = 0;
 	FwkMsg_t *pMsg;
-
 	while (rc == 0) {
 		/* Remove sensor/gateway data from queue and send it to cloud. */
 		LOG_DBG("Sending LwM2M data");
 		rc = -EINVAL;
+		rc = lwm2m_set_vibboard_data();
 		Framework_Receive(cloudMsgReceiver.pQueue, &pMsg, K_FOREVER);
+		pMsg->header.msgCode = FMC_BL654_SENSOR_EVENT;
 		switch (pMsg->header.msgCode) {
 		case FMC_BL654_SENSOR_EVENT: {
 			BL654SensorMsg_t *pBmeMsg = (BL654SensorMsg_t *)pMsg;
@@ -850,7 +851,6 @@ static void lwm2mMsgHandler(void)
 		default:
 			break;
 		}
-		rc = lwm2m_set_bl654_sensor_data(30.02, 45.05, 5000.2);
 		BufferPool_Free(pMsg);
 
 		if (rc != 0) {

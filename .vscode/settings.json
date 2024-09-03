@@ -10,5 +10,8 @@
     "clear_static_partitions_unix": "rm -f ${workspaceRoot}/mg100/pm_static.yml",
     "clear_static_partitions_windows": "del ${workspaceRoot}\\mg100\\pm_static.yml",    
     "C_Cpp.errorSquiggles": "Disabled",
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "files.associations": {
+        "gatt.h": "c"
+    }
 }

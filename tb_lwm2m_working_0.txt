@@ -1,0 +1,995 @@
+[00:00:09.446,228] <inf> modem_hl7800: Network State: 0 NOT_REGISTERED
+[00:00:09.455,810] <inf> modem_hl7800: Network State: 2 SEARCHING
+[00:00:14.182,891] <inf> modem_hl7800: Operator: 0,0,"MEO",9
+[00:00:14.186,279] <inf> modem_hl7800: Network State: 1 HOME_NETWORK
+[00:00:15.327,758] <inf> modem_hl7800: Operator: 0,0,"MEO",9
+[00:00:15.358,856] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 0
+[00:00:16.532,714] <dbg> oob_lte.iface_ready_evt_handler: LTE is ready!
+[00:00:16.533,569] <dbg> main.appSetNextState: appStateWaitForLte->appStateInitLwm2mClient
+[00:00:16.587,646] <inf> modem_hl7800: RTC string: '"24/09/03,15:05:43+04"'
+[00:00:16.587,799] <inf> oob_lte: Epoch set to 1725372343
+[00:00:17.331,329] <dbg> dns.dns_build_addr_string: Address Family 1
+[00:00:17.331,390] <dbg> lwm2m_client.lwm2m_client_init_internal: LWM2M Setup
+[00:00:17.331,420] <wrn> lwm2m_client: Server URL: coap://192.92.147.69
+[00:00:17.331,420] <dbg> lwm2m_client.lwm2m_setup: Security Mode: 3
+[00:00:17.331,451] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:0/0/2, value:0x2002abaf, len:1
+[00:00:17.331,481] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:0/0/3, value:0x0009d324, len:1
+[00:00:17.331,512] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:0/0/5, value:0x00000000, len:0
+[00:00:17.331,604] <dbg> net_lwm2m_engine.lwm2m_engine_create_obj_inst: path:3311/0
+[00:00:17.331,665] <dbg> net_ipso_light_control.light_control_create: Create IPSO Light Control instance: 0
+[00:00:17.331,695] <dbg> net_lwm2m_engine.lwm2m_engine_create_obj_inst: path:3303/0
+[00:00:17.331,756] <dbg> net_ipso_temp_sensor.temp_sensor_create: Create IPSO Temperature Sensor instance: 0
+[00:00:17.331,756] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5701, value:0x000956f5, len:1
+[00:00:17.331,787] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5603, value:0x2002abc8, len:8
+[00:00:17.331,817] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5604, value:0x2002abc8, len:8
+[00:00:17.331,848] <dbg> net_lwm2m_engine.lwm2m_engine_create_obj_inst: path:3304/0
+[00:00:17.331,909] <dbg> net_ipso_humidity_sensor.humidity_sensor_create: Created IPSO Humidity Sensor instance: 0
+[00:00:17.331,909] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3304/0/5701, value:0x0009a1b9, len:1
+[00:00:17.331,939] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3304/0/5603, value:0x2002abc8, len:8
+[00:00:17.331,970] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3304/0/5604, value:0x2002abc8, len:8
+[00:00:17.332,000] <dbg> net_lwm2m_engine.lwm2m_engine_create_obj_inst: path:3323/0
+[00:00:17.332,061] <dbg> net_ipso_pressure_sensor.pressure_sensor_create: Created IPSO Pressure Sensor instance: 0
+[00:00:17.332,061] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3323/0/5701, value:0x00090db7, len:2
+[00:00:17.332,092] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3323/0/5603, value:0x2002abc8, len:8
+[00:00:17.332,122] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3323/0/5604, value:0x2002abc8, len:8
+[00:00:17.332,244] <dbg> lwm2m_client.lwm2m_client_init_internal: Endpoint name: MG100_354616090711172
+[00:00:17.332,275] <inf> net_lwm2m_rd_client: Start LWM2M Client: MG100_354616090711172
+[00:00:17.332,275] <dbg> main.appSetNextState: appStateInitLwm2mClient->appStateLwm2m
+[00:00:17.332,275] <dbg> main.lwm2mMsgHandler: Sending LwM2M data
+[00:00:17.332,275] <dbg> lwm2m_client.lwm2m_set_vibboard_data: RC before new messages: 0
+
+[00:00:17.332,305] <dbg> lwm2m_client.lwm2m_set_vibboard_data: LWM2M initialized: 1
+
+[00:00:17.332,305] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5700, value:0x2002abf0, len:8
+[00:00:17.332,336] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5701, value:0x2002abf0, len:8
+[00:00:17.332,366] <err> net_lwm2m_engine: length 8 is too long for res instance 5701 data
+[00:00:17.332,366] <dbg> net_lwm2m_engine.lwm2m_engine_set: path:3303/0/5702, value:0x2002abf0, len:8
+[00:00:17.332,397] <err> net_lwm2m_engine: obj field 5702 not found
+[00:00:17.332,397] <dbg> lwm2m_client.lwm2m_set_vibboard_data: RC after new messages: -14
+
+[00:00:18.195,617] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:18.195,648] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:18.195,678] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:18.195,739] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:18.637,664] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:19.285,675] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:19.285,675] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:19.285,705] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:19.285,705] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:19.285,766] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:20.202,636] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:20.202,667] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:20.202,697] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:20.202,758] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:20.644,744] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:21.205,657] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:21.205,688] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:21.205,688] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:21.205,688] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:21.205,780] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:22.203,704] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:22.203,765] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:22.203,765] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:22.203,826] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:22.647,705] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:23.124,694] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:23.124,725] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:23.124,725] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:23.124,725] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:23.124,816] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:23.703,735] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:23.703,765] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:23.703,796] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:23.703,857] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:24.147,735] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:26.360,748] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:26.360,778] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:26.360,778] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:26.360,778] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:26.360,870] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:27.205,749] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:27.205,780] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:27.205,810] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:27.205,871] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:27.648,864] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:28.409,851] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:28.409,851] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:28.409,851] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:28.409,881] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:28.409,942] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:29.207,824] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:29.207,855] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:29.207,885] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:29.207,946] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:29.650,878] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:30.200,836] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:30.200,836] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:30.200,836] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:30.200,866] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:30.200,927] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:31.208,831] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:31.208,892] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:31.208,923] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:31.208,984] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:31.650,848] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:32.085,876] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:32.085,876] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:32.085,876] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:32.085,906] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:32.085,968] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:32.709,869] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:32.709,930] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:32.709,930] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:32.709,991] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:33.154,876] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+uart:~$
+uart:~$
+[00:00:36.018,920] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:36.018,920] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:36.018,951] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:36.018,951] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:36.019,012] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:36.710,937] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:36.710,968] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:36.710,998] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:36.711,059] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:37.153,015] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:37.928,955] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:37.928,955] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:37.928,955] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:37.928,985] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:37.929,046] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:38.710,968] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:38.711,029] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:38.711,029] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:38.711,090] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:39.152,984] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:42.330,139] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:42.330,169] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:42.330,169] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:42.330,169] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:42.330,261] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:43.212,036] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:43.212,097] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:43.212,127] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:43.212,158] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:43.654,113] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:45.369,110] <inf> modem_hl7800: RSSI (RSRP): -87 SINR: 0
+[00:00:47.737,121] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:47.737,152] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:47.737,152] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:47.737,152] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:47.737,243] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:48.712,127] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:48.712,158] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:48.712,188] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:48.712,249] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:49.156,219] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:53.856,323] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:53.856,353] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:5.0)
+[00:00:53.856,353] <err> net_lwm2m_rd_client: failed with code 5.0. Re-init network
+[00:00:53.856,353] <dbg> lwm2m_client.rd_client_event: Disconnected
+[00:00:53.856,414] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:54.713,226] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:0/0/1, buf:0x2002828f, buflen:1
+[00:00:54.713,256] <dbg> net_lwm2m_engine.lwm2m_engine_get: path:1/0/1, buf:0x200068b8, buflen:4
+[00:00:54.713,287] <inf> net_lwm2m_rd_client: RD Client started with endpoint 'MG100_354616090711172' with client lifetime 30
+[00:00:54.713,348] <dbg> net_lwm2m_engine.lwm2m_parse_peerinfo: Parse url: coap://192.92.147.69
+[00:00:55.155,303] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:00:56.581,848] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:56.581,878] <dbg> net_lwm2m_rd_client.do_registration_reply_cb: Registration callback (code:2.1)
+[00:00:56.581,878] <dbg> lwm2m_client.rd_client_event: Registration complete
+[00:00:56.581,909] <inf> net_lwm2m_rd_client: Registration Done (EP='Dr7dJ0fRVj')
+[00:00:56.581,970] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:00:56.643,920] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:56.732,391] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:56.822,418] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:56.911,376] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.001,434] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.415,374] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.415,557] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/0(3) token:'23667fd9c496424b' addr:192.92.147.69
+[00:00:57.529,876] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.530,059] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/1(3) token:'43e9af7e7f8c97ae' addr:192.92.147.69
+[00:00:57.618,438] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.618,621] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/2(3) token:'bfebb47f92ba62fc' addr:192.92.147.69
+[00:00:57.710,418] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.710,632] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/10(3) token:'3f5342cb238c8571' addr:192.92.147.69
+[00:00:57.798,431] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.798,645] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/21(3) token:'81958ab238232af2' addr:192.92.147.69
+[00:00:57.887,481] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.887,695] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/3(3) token:'57dd37dc94613b61' addr:192.92.147.69
+[00:00:57.978,393] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:57.978,607] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/20(3) token:'37ed7598cfd0ac80' addr:192.92.147.69
+[00:00:58.068,450] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.068,634] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/11(3) token:'b7a7b6b9669d3644' addr:192.92.147.69
+[00:00:58.068,664] <err> net_lwm2m_engine: READ OP: -2
+[00:00:58.156,433] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.156,616] <err> net_lwm2m_engine: unable to find res_id: 3/0/22
+[00:00:58.156,616] <err> net_lwm2m_engine: add OBSERVE error: -2
+[00:00:58.245,452] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.245,788] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/14(3) token:'53997973be139483' addr:192.92.147.69
+[00:00:58.334,442] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.334,655] <dbg> net_lwm2m_engine.engine_add_observer: OBSERVER ADDED 3/0/13(3) token:'9dca974d7368618d' addr:192.92.147.69
+[00:00:58.423,431] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.423,583] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.511,444] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.511,596] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.599,395] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.599,548] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.688,507] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.688,690] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.777,465] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.777,587] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.866,485] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.866,638] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:58.955,413] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:58.955,566] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:59.042,449] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:59.042,602] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:59.131,500] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:59.131,652] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:59.218,475] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:59.218,627] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:59.656,494] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:59.656,646] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:00:59.924,438] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:00:59.924,591] <err> net_lwm2m_engine: add OBSERVE error: -12
+[00:01:00.002,471] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:08.367,858] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:08.396,453] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:09.779,479] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:09.779,510] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:09.779,571] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:10.002,746] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:15.379,180] <inf> modem_hl7800: RSSI (RSRP): -79 SINR: 6
+[00:01:18.398,193] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:18.426,605] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:19.379,608] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:19.379,638] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:19.379,699] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:19.639,648] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:01:20.002,868] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:20.675,659] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:20.675,659] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:01:20.675,689] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:01:20.675,689] <inf> net_lwm2m_rd_client: Update Done
+[00:01:20.675,750] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:28.428,039] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:28.455,749] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:29.619,750] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:29.619,781] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:29.619,873] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:30.003,082] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:38.457,519] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:38.486,877] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:39.814,910] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:39.814,941] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:39.815,032] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:40.003,234] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:43.700,958] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:01:44.935,028] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:44.935,028] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:01:44.935,058] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:01:44.935,058] <inf> net_lwm2m_rd_client: Update Done
+[00:01:44.935,119] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:45.389,343] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 4
+[00:01:48.488,739] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:48.516,021] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:49.415,100] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:49.415,130] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:49.415,191] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:50.003,540] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:01:57.517,852] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:01:57.546,234] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:58.046,325] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:01:58.073,211] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:58.073,272] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:01:58.102,203] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:58.102,264] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:01:58.103,088] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:01:58.103,210] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:01:58.104,064] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:01:58.104,217] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:01:58.131,225] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:58.131,317] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:01:58.132,171] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:01:58.632,354] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:01:58.633,178] <err> net_lwm2m_engine: READ OP: -2
+[00:01:58.633,209] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:01:58.633,331] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:01:58.634,155] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:01:58.634,277] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:01:58.661,285] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:01:59.061,218] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:59.061,248] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:01:59.061,340] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:01:59.126,647] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:59.126,678] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:01:59.126,739] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:01:59.187,194] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:59.187,225] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:01:59.187,316] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:01:59.336,639] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:59.336,669] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:01:59.336,761] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:01:59.398,315] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:01:59.398,376] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:01:59.398,437] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:02:00.003,692] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:07.876,403] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:02:08.663,604] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:08.691,375] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:09.286,407] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:09.286,407] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:02:09.286,437] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:02:09.286,437] <inf> net_lwm2m_rd_client: Update Done
+[00:02:09.286,499] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:09.365,417] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:09.365,447] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:09.365,509] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:02:10.003,723] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:15.400,054] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 5
+[00:02:18.693,206] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:18.720,550] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:20.003,875] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:20.135,528] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:20.135,559] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:20.135,650] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:28.722,259] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:28.750,701] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:29.735,748] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:29.735,809] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:29.735,870] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:30.003,143] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:31.964,782] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:02:32.935,791] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:32.935,791] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:02:32.935,791] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:02:32.935,821] <inf> net_lwm2m_rd_client: Update Done
+[00:02:32.935,882] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:38.752,929] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:38.779,815] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:40.003,173] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:40.006,896] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:40.006,927] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:40.006,988] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:45.410,156] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 7
+[00:02:48.781,555] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:48.809,020] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:50.003,295] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:02:50.216,064] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:50.216,094] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:50.216,156] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:56.024,169] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:02:57.256,164] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:57.256,164] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:02:57.256,195] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:02:57.256,195] <inf> net_lwm2m_rd_client: Update Done
+[00:02:57.256,256] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:57.810,546] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:02:57.840,179] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:58.340,301] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:02:58.368,225] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:58.368,286] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:02:58.395,172] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:58.395,233] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:02:58.396,057] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:02:58.396,179] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:02:58.397,094] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:02:58.397,216] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:02:58.424,133] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:58.424,194] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:02:58.425,018] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:02:58.925,262] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:02:58.926,086] <err> net_lwm2m_engine: READ OP: -2
+[00:02:58.926,086] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:02:58.926,208] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:02:58.927,062] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:02:58.927,185] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:02:58.954,132] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:02:59.256,591] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:59.256,622] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:02:59.256,683] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:02:59.318,695] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:59.318,725] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:02:59.318,786] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:02:59.379,211] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:59.379,241] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:02:59.379,333] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:02:59.479,614] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:59.479,644] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:02:59.479,705] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:02:59.540,161] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:02:59.540,222] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:02:59.540,283] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:03:00.003,479] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:08.956,024] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:08.983,306] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:10.003,540] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:10.059,356] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:10.059,387] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:10.059,478] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:15.420,196] <inf> modem_hl7800: RSSI (RSRP): -80 SINR: 6
+[00:03:18.984,985] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:19.013,519] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:20.003,723] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:20.225,555] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:03:20.327,545] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:20.327,575] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:20.327,636] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:20.517,547] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:20.517,547] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:03:20.517,547] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:03:20.517,578] <inf> net_lwm2m_rd_client: Update Done
+[00:03:20.517,639] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:03:29.015,045] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:29.042,663] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:30.003,875] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:30.537,719] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:30.537,750] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:30.537,811] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:39.044,677] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:39.071,838] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:40.004,028] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:40.139,892] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:40.139,923] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:40.139,984] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:44.284,912] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:03:45.416,931] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:45.416,931] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:03:45.416,961] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:03:45.416,961] <inf> net_lwm2m_rd_client: Update Done
+[00:03:45.417,022] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:45.430,328] <inf> modem_hl7800: RSSI (RSRP): -89 SINR: -4
+[00:03:49.072,662] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:49.099,945] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:50.004,150] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:03:50.458,038] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:50.458,068] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:50.458,129] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:58.101,593] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:03:58.131,134] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:58.631,286] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:03:58.658,081] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:58.658,142] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:03:58.686,126] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:58.686,187] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:03:58.687,011] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:03:58.687,133] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:03:58.687,988] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:03:58.688,110] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:03:58.716,156] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:58.716,217] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:03:58.717,102] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:03:59.217,315] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:03:59.218,139] <err> net_lwm2m_engine: READ OP: -2
+[00:03:59.218,139] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:03:59.218,261] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:03:59.219,116] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:03:59.219,238] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:03:59.246,093] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:03:59.383,209] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:59.383,239] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:03:59.383,331] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:03:59.482,574] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:59.482,604] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:03:59.482,666] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:03:59.544,555] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:59.544,586] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:03:59.544,647] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:03:59.606,536] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:59.606,567] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:03:59.606,658] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:03:59.667,205] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:03:59.667,236] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:03:59.667,327] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:04:00.004,608] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:08.462,310] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:04:09.247,528] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:09.275,268] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:09.613,708] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:09.613,739] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:04:09.613,739] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:04:09.613,739] <inf> net_lwm2m_rd_client: Update Done
+[00:04:09.613,800] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:09.674,316] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:09.674,346] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:04:09.674,407] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:04:10.004,577] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:15.440,490] <inf> modem_hl7800: RSSI (RSRP): -88 SINR: -4
+[00:04:19.277,099] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:19.304,412] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:19.818,450] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:19.818,481] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:04:19.818,572] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:20.004,638] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:29.306,243] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:29.334,625] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:30.004,821] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:30.087,615] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:30.087,646] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:04:30.087,738] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:32.547,698] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:04:33.898,712] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:33.898,712] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:04:33.898,742] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:04:33.898,742] <inf> net_lwm2m_rd_client: Update Done
+[00:04:33.898,803] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:39.338,806] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:39.366,790] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:40.004,974] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:40.297,760] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:40.297,790] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:04:40.297,882] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:45.450,622] <inf> modem_hl7800: RSSI (RSRP): -89 SINR: -1
+[00:04:49.368,560] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:49.395,935] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:50.004,119] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:04:50.538,970] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:50.539,001] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:04:50.539,062] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:50.738,342] <dbg> mg100_motion_svc.motion_sensor_trig_handler: Movement of the gateway detected.
+[00:04:50.989,990] <dbg> mg100_motion_svc.motion_sensor_trig_handler: Movement of the gateway detected.
+[00:04:51.442,901] <dbg> mg100_motion_svc.motion_sensor_trig_handler: Movement of the gateway detected.
+[00:04:51.684,478] <dbg> mg100_motion_svc.motion_sensor_trig_handler: Movement of the gateway detected.
+[00:04:51.895,965] <dbg> mg100_motion_svc.motion_sensor_trig_handler: Movement of the gateway detected.
+[00:04:56.610,046] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:04:57.578,063] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:04:57.578,094] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:04:57.578,094] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:04:57.578,094] <inf> net_lwm2m_rd_client: Update Done
+[00:04:57.578,155] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:04:58.397,399] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:04:58.428,070] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:58.928,253] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:04:58.955,078] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:58.955,139] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:04:58.983,093] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:58.983,154] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:04:58.983,978] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:04:58.984,100] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:04:58.984,954] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:04:58.985,076] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:04:59.012,115] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:04:59.012,176] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:04:59.013,061] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:04:59.513,305] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:04:59.514,129] <err> net_lwm2m_engine: READ OP: -2
+[00:04:59.514,129] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:04:59.514,251] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:04:59.515,106] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:04:59.515,228] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:04:59.542,053] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:00.004,180] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:00.825,531] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:00.825,561] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:05:00.825,653] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:00.887,542] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:00.887,573] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:05:00.887,634] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:05:00.948,120] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:00.948,150] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:05:00.948,211] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:05:01.081,604] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:01.081,634] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:05:01.081,695] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:05:01.142,181] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:01.142,211] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:01.142,272] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:05:09.543,792] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:09.572,235] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:10.004,302] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:11.018,310] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:11.018,341] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:11.018,402] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:15.460,662] <inf> modem_hl7800: RSSI (RSRP): -87 SINR: 0
+[00:05:19.573,974] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:19.601,379] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:20.004,486] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:20.815,460] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:05:20.815,551] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:20.815,582] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:20.815,673] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:21.944,427] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:21.944,458] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:05:21.944,458] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:05:21.944,458] <inf> net_lwm2m_rd_client: Update Done
+[00:05:21.944,549] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:05:29.602,844] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:29.631,530] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:30.004,669] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:30.857,574] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:30.857,604] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:30.857,696] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:39.633,239] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:39.660,736] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:40.004,852] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:41.099,761] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:41.099,792] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:41.099,853] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:44.875,854] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:05:45.470,733] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: 0
+[00:05:46.218,841] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:46.218,872] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:05:46.218,872] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:05:46.218,872] <inf> net_lwm2m_rd_client: Update Done
+[00:05:46.218,963] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:49.664,642] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:49.691,894] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:50.005,004] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:05:50.758,911] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:50.758,941] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:05:50.759,002] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:58.692,413] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:05:58.722,015] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:59.222,137] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:05:59.250,000] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:59.250,061] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:05:59.278,045] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:59.278,106] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:05:59.278,930] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:05:59.279,052] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:05:59.279,907] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:05:59.280,029] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:05:59.306,060] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:59.306,121] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:05:59.307,006] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:05:59.706,451] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:59.706,481] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:05:59.706,542] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:05:59.706,634] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:05:59.707,458] <err> net_lwm2m_engine: READ OP: -2
+[00:05:59.707,458] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:05:59.707,580] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:05:59.708,435] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:05:59.708,557] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:05:59.794,067] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:05:59.794,189] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:59.794,219] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:05:59.794,311] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:05:59.858,520] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:59.858,551] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:05:59.858,612] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:05:59.919,097] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:05:59.919,128] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:05:59.919,189] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:06:00.005,340] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:00.119,079] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:00.119,110] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:00.119,171] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:09.023,193] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:06:09.808,380] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:06:09.835,205] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:10.005,340] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:10.571,258] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:10.571,258] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:06:10.571,289] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:06:10.571,289] <inf> net_lwm2m_rd_client: Update Done
+[00:06:10.571,350] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:10.648,223] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:10.648,254] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:10.648,315] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:06:15.480,834] <inf> modem_hl7800: RSSI (RSRP): -82 SINR: 5
+[00:06:19.837,127] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:06:19.864,379] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:20.005,493] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:20.778,350] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:20.778,381] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:20.778,472] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:29.866,210] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:06:29.894,531] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:30.005,706] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:31.018,554] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:31.018,585] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:31.018,646] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:33.107,635] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:06:34.218,597] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:34.218,597] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:06:34.218,627] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:06:34.218,627] <inf> net_lwm2m_rd_client: Update Done
+[00:06:34.218,688] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:39.895,721] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:06:39.922,668] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:40.005,737] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:41.261,749] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:41.261,779] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:41.261,871] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:45.490,966] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: 3
+[00:06:49.924,438] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:06:49.951,812] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:50.005,950] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:06:50.860,900] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:50.860,931] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:06:50.860,992] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:57.166,137] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:06:58.570,007] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:06:58.570,007] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:06:58.570,037] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:06:58.570,037] <inf> net_lwm2m_rd_client: Update Done
+[00:06:58.570,098] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:06:58.953,247] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:06:58.981,994] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:59.481,140] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:06:59.510,009] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:59.510,070] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:06:59.538,024] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:59.538,085] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:06:59.538,970] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:06:59.539,123] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:06:59.539,947] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:06:59.540,069] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:06:59.567,047] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:06:59.567,108] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:06:59.567,993] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:07:00.005,249] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:07:00.006,072] <err> net_lwm2m_engine: READ OP: -2
+[00:07:00.006,072] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:07:00.006,225] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:07:00.007,049] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:07:00.007,171] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:00.034,027] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:00.034,027] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:00.506,256] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:00.506,286] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:07:00.506,378] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:00.603,454] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:00.603,485] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:07:00.603,576] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:07:00.665,435] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:00.665,466] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:07:00.665,527] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:07:00.727,447] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:00.727,478] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:07:00.727,569] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:07:00.788,116] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:00.788,146] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:00.788,238] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:07:10.034,790] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:10.062,164] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:10.062,194] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:11.340,209] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:11.340,240] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:11.340,301] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:15.501,129] <inf> modem_hl7800: RSSI (RSRP): -85 SINR: 2
+[00:07:20.062,896] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:20.090,332] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:20.090,362] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:21.303,375] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:07:21.613,891] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:21.613,922] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:21.613,983] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:21.674,377] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:21.674,377] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:07:21.674,377] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:07:21.674,407] <inf> net_lwm2m_rd_client: Update Done
+[00:07:21.674,468] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:07:30.090,850] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:30.118,499] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:30.118,499] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:31.180,511] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:31.180,541] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:31.180,633] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:40.118,286] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:40.146,667] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:40.146,667] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:41.450,683] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:41.450,714] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:41.450,775] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:45.361,755] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:07:45.511,077] <inf> modem_hl7800: RSSI (RSRP): -84 SINR: 3
+[00:07:46.540,740] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:46.540,771] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:07:46.540,771] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:07:46.540,771] <inf> net_lwm2m_rd_client: Update Done
+[00:07:46.540,863] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:50.146,636] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:07:50.173,797] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:50.173,828] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:07:51.659,851] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:07:51.659,881] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:07:51.659,942] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:07:59.176,391] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:07:59.206,970] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:59.707,122] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:07:59.733,917] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:59.733,978] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:07:59.761,962] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:59.762,023] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:07:59.762,847] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:07:59.762,969] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:07:59.763,824] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:07:59.763,946] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:07:59.790,985] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:07:59.791,046] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:07:59.791,931] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:08:00.173,156] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:08:00.173,980] <err> net_lwm2m_engine: READ OP: -2
+[00:08:00.173,980] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:08:00.174,102] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:08:00.174,957] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:08:00.175,079] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:00.201,934] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:00.201,965] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:00.701,721] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:00.701,751] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:08:00.701,812] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:00.763,427] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:00.763,458] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:08:00.763,519] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:08:00.823,974] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:00.824,005] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:08:00.824,066] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:08:00.942,443] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:00.942,474] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:08:00.942,535] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:08:01.004,058] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:01.004,089] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:01.004,180] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:08:09.507,110] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:08:10.201,324] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:10.229,095] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:10.229,095] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:10.860,137] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:10.860,137] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:08:10.860,168] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:08:10.860,168] <inf> net_lwm2m_rd_client: Update Done
+[00:08:10.860,229] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:11.017,150] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:11.017,181] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:11.017,272] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:08:15.521,240] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: 1
+[00:08:20.229,736] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:20.257,263] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:20.257,263] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:21.787,322] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:21.787,414] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:21.787,475] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:30.257,965] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:30.286,437] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:30.286,468] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:33.509,490] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:08:33.903,930] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:33.903,961] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:33.904,022] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:33.964,508] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:33.964,508] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:08:33.964,508] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:08:33.964,538] <inf> net_lwm2m_rd_client: Update Done
+[00:08:33.964,599] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:08:40.286,926] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:40.314,605] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:40.314,636] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:41.581,665] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:41.581,695] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:41.581,756] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:45.531,616] <inf> modem_hl7800: RSSI (RSRP): -81 SINR: 6
+[00:08:50.315,063] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:08:50.342,773] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:50.342,773] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:08:51.822,814] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:51.822,845] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:08:51.822,906] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:57.556,884] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:08:58.861,907] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:08:58.861,907] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:08:58.861,938] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:08:58.861,938] <inf> net_lwm2m_rd_client: Update Done
+[00:08:58.861,999] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:08:59.345,153] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:08:59.374,877] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:59.875,000] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:08:59.902,954] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:59.903,015] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:08:59.931,915] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:59.931,976] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:08:59.932,861] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:08:59.933,013] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:08:59.933,837] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:08:59.933,959] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:08:59.960,937] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:08:59.960,998] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:08:59.961,883] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:09:00.343,139] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:09:00.343,963] <err> net_lwm2m_engine: READ OP: -2
+[00:09:00.343,963] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:09:00.344,085] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:09:00.344,940] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:09:00.345,062] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:00.371,917] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:00.371,948] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:00.827,941] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:00.827,972] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:09:00.828,033] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:00.924,377] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:00.924,438] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:09:00.924,499] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:09:00.986,419] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:00.986,450] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:09:00.986,541] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:09:01.048,339] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:01.048,370] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:09:01.048,431] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:09:01.108,917] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:01.108,978] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:01.109,039] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+[00:09:10.371,673] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:10.400,024] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:10.400,054] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:11.692,108] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:11.692,138] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:11.692,199] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:15.541,839] <inf> modem_hl7800: RSSI (RSRP): -86 SINR: -1
+[00:09:20.400,787] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:20.428,253] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:20.428,283] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:21.677,246] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:09:21.963,287] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:21.963,317] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:21.963,378] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:22.060,241] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:22.060,272] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:09:22.060,272] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:09:22.060,272] <inf> net_lwm2m_rd_client: Update Done
+[00:09:22.060,363] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:09:30.429,138] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:30.456,359] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:30.456,390] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:31.502,441] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:31.502,471] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:31.502,532] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:40.456,970] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:40.484,527] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:40.484,558] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:41.742,553] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:41.742,584] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:41.742,675] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:45.698,669] <dbg> net_lwm2m_rd_client.sm_send_registration: registration sent [192.92.147.69]
+[00:09:45.708,221] <inf> modem_hl7800: RSSI (RSRP): -82 SINR: 5
+[00:09:46.862,701] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:46.862,701] <inf> net_lwm2m_rd_client: Update callback (code:2.4)
+[00:09:46.862,731] <dbg> lwm2m_client.rd_client_event: Registration update complete
+[00:09:46.862,731] <inf> net_lwm2m_rd_client: Update Done
+[00:09:46.862,792] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:50.484,405] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:09:50.511,718] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:09:50.511,749] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:09:51.982,727] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:09:51.982,757] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:09:51.982,818] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:09:59.513,122] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/0(3) token:'23667fd9c496424b' [192.92.147.69] ERR
+[00:09:59.543,884] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:10:00.044,006] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/1(3) token:'43e9af7e7f8c97ae' [192.92.147.69] ERR
+[00:10:00.071,868] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:10:00.071,929] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/2(3) token:'bfebb47f92ba62fc' [192.92.147.69] ERR
+[00:10:00.099,884] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:10:00.099,945] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/10(3) token:'3f5342cb238c8571' [192.92.147.69] ERR
+[00:10:00.100,769] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:10:00.100,891] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/21(3) token:'81958ab238232af2' [192.92.147.69] ERR
+[00:10:00.101,715] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:10:00.101,867] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/3(3) token:'57dd37dc94613b61' [192.92.147.69] ERR
+[00:10:00.128,906] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:10:00.128,967] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/20(3) token:'37ed7598cfd0ac80' [192.92.147.69] ERR
+[00:10:00.129,852] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:10:00.512,115] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/11(3) token:'b7a7b6b9669d3644' [192.92.147.69] ERR
+[00:10:00.512,939] <err> net_lwm2m_engine: READ OP: -2
+[00:10:00.512,939] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:10:00.513,061] <dbg> net_lwm2m_engine.generate_notify_message: [AUTO] NOTIFY MSG START: 3/0/14(3) token:'53997973be139483' [192.92.147.69] ERR
+[00:10:00.513,916] <err> net_lwm2m_engine: error in multi-format read (err:-2)
+[00:10:00.514,038] <dbg> net_lwm2m_engine.generate_notify_message: [MANUAL] NOTIFY MSG START: 3/0/13(3) token:'9dca974d7368618d' [192.92.147.69] ERR
+[00:10:00.539,855] <dbg> net_lwm2m_engine.generate_notify_message: NOTIFY MSG: SENT
+[00:10:00.539,886] <dbg> net_lwm2m_engine.lwm2m_notify_observer: NOTIFY EVENT 3/0/13
+[00:10:00.988,891] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:10:00.988,922] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'23667fd9c496424b'
+[00:10:00.989,013] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d50 handled and removed
+[00:10:01.086,303] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:10:01.086,334] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'43e9af7e7f8c97ae'
+[00:10:01.086,395] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d68 handled and removed
+[00:10:01.148,315] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:10:01.148,345] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'bfebb47f92ba62fc'
+[00:10:01.148,406] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d80 handled and removed
+[00:10:01.210,296] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:10:01.210,327] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'57dd37dc94613b61'
+[00:10:01.210,418] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006d98 handled and removed
+[00:10:01.272,003] <dbg> net_lwm2m_engine.lwm2m_udp_receive: checking for reply from [192.92.147.69]
+[00:10:01.272,064] <dbg> net_lwm2m_engine.notify_message_reply_cb: NOTIFY ACK type:2 code:0.0 reply_token:'9dca974d7368618d'
+[00:10:01.272,125] <dbg> net_lwm2m_engine.lwm2m_udp_receive: reply 0x20006db0 handled and removed
+uart:~$

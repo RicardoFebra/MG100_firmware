@@ -36,6 +36,13 @@ extern "C" {
  */
 void lwm2m_client_init(void);
 
+/** 
+ * @brief Set the vibration board data in the respective IPSO objects.
+ * 
+ * @retval 0 on success, negative value otherwise.
+ */
+int lwm2m_set_vibboard_data(void);
+
 /**
  * @brief Set the temperature, pressure, and humidity in the
  * respective IPSO objects.

@@ -78,6 +78,31 @@ void lwm2m_client_init(void)
 	lwm2m_client_init_internal();
 }
 
+int lwm2m_set_vibboard_data(void)
+{
+	int result = 0;
+	LOG_DBG("RC before new messages: %d\n", result);
+	LOG_DBG("LWM2M initialized: %d\n", lwm2m_initialized);
+
+	if (lwm2m_initialized) {
+		struct float32_value float_value;
+
+		/* Vibration is used to test generic sensor */
+
+		float_value = make_float_value(22.1);
+		result += lwm2m_engine_set_float32("3303/0/5700", &float_value);
+
+		float_value = make_float_value(50.0);
+		result += lwm2m_engine_set_float32("3303/0/5701", "mg");
+
+	LOG_DBG("RC after new messages: %d\n", result);
+	
+	}
+
+	return result;
+
+}
+
 int lwm2m_set_bl654_sensor_data(float temperature, float humidity,
 				float pressure)
 {
@@ -163,13 +188,19 @@ static int lwm2m_setup(const char *serial_number, const char *imei)
 	LOG_WRN("Server URL: %s", log_strdup(server_url));
 
 	/* Security Mode */
+	LOG_DBG("Security Mode: %d",
+		IS_ENABLED(CONFIG_LWM2M_DTLS_SUPPORT) ? 0 : 3);
 	lwm2m_engine_set_u8("0/0/2",
 			    IS_ENABLED(CONFIG_LWM2M_DTLS_SUPPORT) ? 0 : 3);
 #if defined(CONFIG_LWM2M_DTLS_SUPPORT)
 	lwm2m_engine_set_string("0/0/3", (char *)ble_lwm2m_get_client_id());
 	lwm2m_engine_set_opaque("0/0/5", (void *)ble_lwm2m_get_client_psk(),
 				CONFIG_LWM2M_PSK_SIZE);
+#else
+	lwm2m_engine_set_string("0/0/3", "0");
+	lwm2m_engine_set_opaque("0/0/5", NULL, 0);
 #endif /* CONFIG_LWM2M_DTLS_SUPPORT */
+	
 
 	/* setup SERVER object */
 
@@ -277,7 +308,7 @@ static void lwm2m_client_init_internal(void)
 	if (ret < 0) {
 		return;
 	}
-
+	LOG_DBG("LWM2M Setup");
 	ret = lwm2m_setup(lte_status->serialNumber, lte_status->IMEI);
 	if (ret < 0) {
 		LOG_ERR("Cannot setup LWM2M fields (%d)", ret);
