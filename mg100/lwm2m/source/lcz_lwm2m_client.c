@@ -93,7 +93,7 @@ int lwm2m_set_vibboard_data(void)
 		result += lwm2m_engine_set_float32("3303/0/5700", &float_value);
 
 		float_value = make_float_value(50.0);
-		result += lwm2m_engine_set_float32("3303/0/5701", "mg");
+		result += lwm2m_engine_set_string("3303/0/5701", "mg");
 
 	LOG_DBG("RC after new messages: %d\n", result);
 	

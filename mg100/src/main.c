@@ -62,6 +62,8 @@ LOG_MODULE_REGISTER(main);
 #include "bluegrass.h"
 #endif
 
+#include "vibboard.h"
+
 #ifdef CONFIG_LWM2M
 #include "lcz_lwm2m_client.h"
 #include "ble_lwm2m_service.h"
@@ -146,12 +148,11 @@ static struct bt_le_scan_param scanParameters =
 	BT_LE_SCAN_PARAM_INIT(BT_LE_SCAN_TYPE_ACTIVE, BT_LE_SCAN_OPT_CODED,
 			      BT_GAP_SCAN_FAST_INTERVAL,
 			      BT_GAP_SCAN_FAST_WINDOW);
-#elif defined(CONFIG_SCAN_FOR_BT510)
+#endif
 static struct bt_le_scan_param scanParameters =
 	BT_LE_SCAN_PARAM_INIT(BT_LE_SCAN_TYPE_ACTIVE, BT_LE_SCAN_OPT_NONE,
 			      BT_GAP_SCAN_FAST_INTERVAL,
 			      BT_GAP_SCAN_FAST_WINDOW);
-#endif
 
 static struct k_timer fifo_timer;
 
@@ -250,7 +251,12 @@ void main(void)
 	initializeBle(lteInfo->IMEI);
 	single_peripheral_initialize();
 
+	start_scan();
+
 #ifdef CONFIG_SCAN_FOR_BT510
+	bt_scan_set_parameters(&scanParameters);
+#endif
+#ifdef CONFIG_SCAN_FOR_VIBBOARD
 	bt_scan_set_parameters(&scanParameters);
 #endif
 
@@ -261,6 +267,7 @@ void main(void)
 #ifdef CONFIG_BLUEGRASS
 	Bluegrass_Initialize(cloudMsgReceiver.pQueue);
 #endif
+
 	//SensorTask_Initialize(); // [LocalChanges]
 
 	dis_initialize(APP_VERSION_STRING);
@@ -837,15 +844,19 @@ static void lwm2mMsgHandler(void)
 		/* Remove sensor/gateway data from queue and send it to cloud. */
 		LOG_DBG("Sending LwM2M data");
 		rc = -EINVAL;
-		rc = lwm2m_set_vibboard_data();
+		
 		Framework_Receive(cloudMsgReceiver.pQueue, &pMsg, K_FOREVER);
-		pMsg->header.msgCode = FMC_BL654_SENSOR_EVENT;
 		switch (pMsg->header.msgCode) {
 		case FMC_BL654_SENSOR_EVENT: {
 			BL654SensorMsg_t *pBmeMsg = (BL654SensorMsg_t *)pMsg;
 			rc = lwm2m_set_bl654_sensor_data(
 				pBmeMsg->temperatureC, pBmeMsg->humidityPercent,
 				pBmeMsg->pressurePa);
+		} break;
+
+		case FMC_CONNECT_REQUEST: {
+			LOG_DBG("Vibration Board event - converting BLE to LWM2M");
+			rc = lwm2m_set_vibboard_data();
 		} break;
 
 		default:

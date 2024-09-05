@@ -12,6 +12,7 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "cmake.configureOnOpen": false,
     "files.associations": {
-        "gatt.h": "c"
+        "gatt.h": "c",
+        "zephyr.h": "c"
     }
 }

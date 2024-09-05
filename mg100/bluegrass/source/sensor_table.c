@@ -136,6 +136,10 @@ static void ClearEntry(SensorEntry_t *pEntry);
 static void FreeCmdBuffers(SensorEntry_t *pEntry);
 static void FreeEntryBuffers(SensorEntry_t *pEntry);
 
+static bool FindVibboardAdvertisement(AdHandle_t *pHandle);
+static bool FindVibboardScanResponse(AdHandle_t *pHandle);
+static bool FindVibboardCodedAdvertisement(AdHandle_t *pHandle);
+
 static bool FindBt510Advertisement(AdHandle_t *pHandle);
 static bool FindBt510ScanResponse(AdHandle_t *pHandle);
 static bool FindBt510CodedAdvertisement(AdHandle_t *pHandle);

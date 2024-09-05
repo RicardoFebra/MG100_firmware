@@ -52,6 +52,10 @@ config SCAN_FOR_BT510_CODED
     help
         Coded PHY (extended advertisements) requires Nordic binary
 
+config SCAN_FOR_VIBBOARD
+    bool "Parse Bluetooth advertisements for Vibration Sensor"
+    default y
+
 config CLOUD_QUEUE_SIZE
     int "The size of queue for sending messages to AWS or LWM2M client"
     default 32

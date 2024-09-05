@@ -31,6 +31,12 @@ target_sources(app PRIVATE
 )
 endif()
 
+include_directories(${CMAKE_SOURCE_DIR}/vibboard/include)
+FILE(GLOB vibboard_sources ${CMAKE_SOURCE_DIR}/vibboard/source/*.c)
+target_sources(app PRIVATE 
+    ${vibboard_sources}
+)
+
 if(CONFIG_BLUEGRASS)
 include_directories(${CMAKE_SOURCE_DIR}/bluegrass/include)
 FILE(GLOB bluegrass_sources ${CMAKE_SOURCE_DIR}/bluegrass/source/*.c)
