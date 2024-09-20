@@ -32,6 +32,8 @@ LOG_MODULE_REGISTER(lwm2m_client);
 #include "lte.h"
 #include "lcz_lwm2m_client.h"
 
+#include "stdio.h"
+
 /******************************************************************************/
 /* Local Constant, Macro and Type Definitions                                 */
 /******************************************************************************/
@@ -67,6 +69,7 @@ static int led_on_off_cb(uint16_t obj_inst_id, uint16_t res_id,
 			 bool last_block, size_t total_size);
 static int resolve_server_address(void);
 static void create_bl654_sensor_objects(void);
+static void create_vibboard_objects(void);
 static struct float32_value make_float_value(float v);
 static size_t lwm2m_str_size(const char *s);
 
@@ -78,22 +81,49 @@ void lwm2m_client_init(void)
 	lwm2m_client_init_internal();
 }
 
-int lwm2m_set_vibboard_data(void)
+int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 {
 	int result = 0;
 	LOG_DBG("RC before new messages: %d\n", result);
 	LOG_DBG("LWM2M initialized: %d\n", lwm2m_initialized);
 
+	print_vibboard_table(vibboard_devices);
+
 	if (lwm2m_initialized) {
 		struct float32_value float_value;
 
-		/* Vibration is used to test generic sensor */
+		/* Vibration data*/
+		for (int i = 0; i < VIBBOARD_NR; i++) {
+			// 42790/Vibboard_id/object
+			if (vibboard_devices[i].device_id != -1) {
 
-		float_value = make_float_value(22.1);
-		result += lwm2m_engine_set_float32("3303/0/5700", &float_value);
+				char lwm2m_path_object = "42790/";
+				char lwm2m_path_item = "/1000";
+				char lwm2m_path[20];
+				int32_t integer_32_value;
 
-		float_value = make_float_value(50.0);
-		result += lwm2m_engine_set_string("3303/0/5701", "mg");
+
+				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
+				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
+				integer_32_value = vibboard_devices[i].device_id;
+				result += lwm2m_engine_set_s32(lwm2m_path, &integer_32_value);
+
+				lwm2m_path_item = "/1001";
+				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
+				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
+				//char string_value[30];
+				//memcpy(string_value,vibboard_devices[i].device_name,sizeof(vibboard_devices[i].device_name))
+				result += lwm2m_engine_set_string(lwm2m_path, vibboard_devices[i].device_name);
+
+				lwm2m_path_item = "/2000";
+				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
+				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
+				integer_32_value = vibboard_devices[i].TD_device_state;
+				result += lwm2m_engine_set_s32(lwm2m_path, &integer_32_value);
+			}
+		}
+
+
 
 	LOG_DBG("RC after new messages: %d\n", result);
 	
@@ -228,6 +258,8 @@ static int lwm2m_setup(const char *serial_number, const char *imei)
 
 	/* setup objects for remote sensors */
 	create_bl654_sensor_objects();
+
+	create_vibboard_objects();
 
 	return 0;
 }
@@ -390,6 +422,17 @@ static void create_bl654_sensor_objects(void)
 	float_value.val1 = 1100000;
 	lwm2m_engine_set_float32("3323/0/5604", &float_value);
 #endif
+}
+
+static void create_vibboard_objects(void){
+
+	for (int i = 0; i < VIBBOARD_NR; i++) {
+		char lwm2m_path_object[6] = "42790/";
+		char lwm2m_path[20];
+
+		snprintf(lwm2m_path, 20,"%s%d", lwm2m_path_object, i);
+		lwm2m_engine_create_obj_inst(lwm2m_path);
+	}
 }
 
 static struct float32_value make_float_value(float v)

@@ -52,6 +52,11 @@ typedef struct BL654SensorMsg {
 	float pressurePa; /* x.xPa format */
 } BL654SensorMsg_t;
 
+typedef struct VibboardMsg{
+	FwkMsgHeader_t header;
+	//struct vibboard_device vibboard_device;
+} VibboardMsg_t;
+
 #ifdef __cplusplus
 }
 #endif

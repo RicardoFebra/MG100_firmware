@@ -15,6 +15,8 @@
 #include <zephyr/types.h>
 #include <stddef.h>
 
+#include "vibboard.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,7 +43,7 @@ void lwm2m_client_init(void);
  * 
  * @retval 0 on success, negative value otherwise.
  */
-int lwm2m_set_vibboard_data(void);
+int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices);
 
 /**
  * @brief Set the temperature, pressure, and humidity in the

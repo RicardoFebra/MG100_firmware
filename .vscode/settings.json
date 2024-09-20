@@ -13,6 +13,9 @@
     "cmake.configureOnOpen": false,
     "files.associations": {
         "gatt.h": "c",
-        "zephyr.h": "c"
+        "zephyr.h": "c",
+        "array": "c",
+        "led_configuration.h": "c",
+        "lte.h": "c"
     }
 }

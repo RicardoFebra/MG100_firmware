@@ -62,8 +62,6 @@ LOG_MODULE_REGISTER(main);
 #include "bluegrass.h"
 #endif
 
-#include "vibboard.h"
-
 #ifdef CONFIG_LWM2M
 #include "lcz_lwm2m_client.h"
 #include "ble_lwm2m_service.h"
@@ -155,6 +153,8 @@ static struct bt_le_scan_param scanParameters =
 			      BT_GAP_SCAN_FAST_WINDOW);
 
 static struct k_timer fifo_timer;
+
+struct vibboard_device vibboard_devices[VIBBOARD_NR];
 
 /******************************************************************************/
 /* Local Function Prototypes                                                  */
@@ -251,7 +251,10 @@ void main(void)
 	initializeBle(lteInfo->IMEI);
 	single_peripheral_initialize();
 
-	start_scan();
+	/*------------Init Vibboards----------*/
+	
+	vibboard_init_table(vibboard_devices);
+	start_scan_vibboard(vibboard_devices);
 
 #ifdef CONFIG_SCAN_FOR_BT510
 	bt_scan_set_parameters(&scanParameters);
@@ -332,10 +335,10 @@ void main(void)
 		      K_SECONDS(CONFIG_CLOUD_FIFO_CHECK_RATE_SECONDS));
 
 	appReady = true;
+
 	printk("\n!!!!!!!! App is ready! !!!!!!!!\n");
 
 	appSetNextState(appStateStartup);
-
 	while (true) {
 		appState();
 	}
@@ -847,21 +850,20 @@ static void lwm2mMsgHandler(void)
 		
 		Framework_Receive(cloudMsgReceiver.pQueue, &pMsg, K_FOREVER);
 		switch (pMsg->header.msgCode) {
-		case FMC_BL654_SENSOR_EVENT: {
-			BL654SensorMsg_t *pBmeMsg = (BL654SensorMsg_t *)pMsg;
-			rc = lwm2m_set_bl654_sensor_data(
-				pBmeMsg->temperatureC, pBmeMsg->humidityPercent,
-				pBmeMsg->pressurePa);
-		} break;
+			case FMC_BL654_SENSOR_EVENT: {
+				BL654SensorMsg_t *pBmeMsg = (BL654SensorMsg_t *)pMsg;
+				rc = lwm2m_set_bl654_sensor_data(
+					pBmeMsg->temperatureC, pBmeMsg->humidityPercent,
+					pBmeMsg->pressurePa);
+			} break;
 
-		case FMC_CONNECT_REQUEST: {
-			LOG_DBG("Vibration Board event - converting BLE to LWM2M");
-			rc = lwm2m_set_vibboard_data();
-		} break;
+			case FMC_VIBBOARD_EVENT: {
+				rc = lwm2m_set_vibboard_data(vibboard_devices);
+			} break;
 
-		default:
-			break;
-		}
+			default:
+				break;
+			}
 		BufferPool_Free(pMsg);
 
 		if (rc != 0) {
