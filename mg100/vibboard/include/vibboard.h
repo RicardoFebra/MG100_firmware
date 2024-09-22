@@ -1,6 +1,7 @@
 #include "sensor_adv_format.h"
 
 #define VIBBOARD_NR 15
+#define TD_NR_FEATURES 5
 #define FD_NR_PEAKS 4
 
 struct vibboard_device{

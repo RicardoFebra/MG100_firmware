@@ -16,6 +16,7 @@
         "zephyr.h": "c",
         "array": "c",
         "led_configuration.h": "c",
-        "lte.h": "c"
+        "lte.h": "c",
+        "random": "c"
     }
 }

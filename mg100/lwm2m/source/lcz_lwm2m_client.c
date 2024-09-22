@@ -34,6 +34,8 @@ LOG_MODULE_REGISTER(lwm2m_client);
 
 #include "stdio.h"
 
+#define ENPOINT_UNIQUE_CODE "354616090711173"
+
 /******************************************************************************/
 /* Local Constant, Macro and Type Definitions                                 */
 /******************************************************************************/
@@ -53,6 +55,15 @@ static uint32_t lwm2m_time;
 static struct lwm2m_ctx client;
 static bool lwm2m_initialized;
 static char server_addr[CONFIG_DNS_RESOLVER_ADDR_MAX_SIZE];
+
+static u8_t bat_idx = LWM2M_DEVICE_PWR_SRC_TYPE_BAT_INT;
+static int bat_mv = 3800;
+static int bat_ma = 125;
+static u8_t usb_idx = LWM2M_DEVICE_PWR_SRC_TYPE_USB;
+static int usb_mv = 5000;
+static int usb_ma = 900;
+static u8_t bat_level = 95;
+static u8_t bat_status = LWM2M_DEVICE_BATTERY_STATUS_CHARGING;
 
 /******************************************************************************/
 /* Local Function Prototypes                                                  */
@@ -90,40 +101,30 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 	print_vibboard_table(vibboard_devices);
 
 	if (lwm2m_initialized) {
+
+		char lwm2m_obj_path[20];
+		char lwm2m_path_object[6] = "42790";
+
 		struct float32_value float_value;
+		s64_t integer_64_value;
 
 		/* Vibration data*/
 		for (int i = 0; i < VIBBOARD_NR; i++) {
 			// 42790/Vibboard_id/object
 			if (vibboard_devices[i].device_id != -1) {
 
-				char lwm2m_path_object = "42790/";
-				char lwm2m_path_item = "/1000";
-				char lwm2m_path[20];
-				int32_t integer_32_value;
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1000", lwm2m_path_object, vibboard_devices[i].device_id);
+				LOG_DBG("LWM2M path: %s\n", lwm2m_obj_path);
+				integer_64_value = vibboard_devices[i].device_id;
+				result += lwm2m_engine_set_s64(lwm2m_obj_path, &integer_64_value);
 
-
-				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
-				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
-				integer_32_value = vibboard_devices[i].device_id;
-				result += lwm2m_engine_set_s32(lwm2m_path, &integer_32_value);
-
-				lwm2m_path_item = "/1001";
-				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
-				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
-				//char string_value[30];
-				//memcpy(string_value,vibboard_devices[i].device_name,sizeof(vibboard_devices[i].device_name))
-				result += lwm2m_engine_set_string(lwm2m_path, vibboard_devices[i].device_name);
-
-				lwm2m_path_item = "/2000";
-				sprintf(lwm2m_path, "%s%d%s", lwm2m_path_object, vibboard_devices[i].device_id, lwm2m_path_item);
-				LOG_DBG("LWM2M path: %s\n", lwm2m_path);
-				integer_32_value = vibboard_devices[i].TD_device_state;
-				result += lwm2m_engine_set_s32(lwm2m_path, &integer_32_value);
+				snprintk(lwm2m_obj_path,sizeof(lwm2m_obj_path), "%s/%d/1000", lwm2m_path_object, vibboard_devices[i].device_id);
+				LOG_DBG("LWM2M path: %s\n", lwm2m_obj_path);
+				char string_value[9];
+				memcpy(string_value,vibboard_devices[i].device_name,sizeof(vibboard_devices[i].device_name));
+				result += lwm2m_engine_set_string(lwm2m_obj_path, vibboard_devices[i].device_name);
 			}
 		}
-
-
 
 	LOG_DBG("RC after new messages: %d\n", result);
 	
@@ -252,6 +253,19 @@ static int lwm2m_setup(const char *serial_number, const char *imei)
 	lwm2m_engine_register_exec_callback("3/0/5", device_factory_default_cb);
 	lwm2m_engine_register_read_callback("3/0/13", current_time_read_cb);
 
+	lwm2m_engine_create_res_inst("3/0/6/0");
+	lwm2m_engine_set_res_data("3/0/6/0", &bat_idx, sizeof(bat_idx), 0);
+	lwm2m_engine_create_res_inst("3/0/7/0");
+	lwm2m_engine_set_res_data("3/0/7/0", &bat_mv, sizeof(bat_mv), 0);
+	lwm2m_engine_create_res_inst("3/0/8/0");
+	lwm2m_engine_set_res_data("3/0/8/0", &bat_ma, sizeof(bat_ma), 0);
+	lwm2m_engine_create_res_inst("3/0/6/1");
+	lwm2m_engine_set_res_data("3/0/6/1", &usb_idx, sizeof(usb_idx), 0);
+	lwm2m_engine_create_res_inst("3/0/7/1");
+	lwm2m_engine_set_res_data("3/0/7/1", &usb_mv, sizeof(usb_mv), 0);
+	lwm2m_engine_create_res_inst("3/0/8/1");
+	lwm2m_engine_set_res_data("3/0/8/1", &usb_ma, sizeof(usb_ma), 0);
+
 	/* IPSO: Light Control object */
 	lwm2m_engine_create_obj_inst("3311/0");
 	lwm2m_engine_register_post_write_callback("3311/0/5850", led_on_off_cb);
@@ -356,7 +370,7 @@ static void lwm2m_client_init_internal(void)
 	char endpoint_name[CONFIG_LWM2M_CLIENT_ENDPOINT_MAX_SIZE];
 	memset(endpoint_name, 0, sizeof(endpoint_name));
 	snprintk(endpoint_name, CONFIG_LWM2M_CLIENT_ENDPOINT_MAX_SIZE, "%s_%s",
-		 dis_get_model_number(), lte_status->IMEI);
+		dis_get_model_number(), ENPOINT_UNIQUE_CODE);
 	LOG_DBG("Endpoint name: %s", log_strdup(endpoint_name));
 	lwm2m_rd_client_start(&client, endpoint_name, rd_client_event);
 	lwm2m_initialized = true;
@@ -426,12 +440,43 @@ static void create_bl654_sensor_objects(void)
 
 static void create_vibboard_objects(void){
 
+	char lwm2m_obj_path[20];
+	char lwm2m_path_object[6] = "42790";
+	char lwm2m_resource_path[20];
 	for (int i = 0; i < VIBBOARD_NR; i++) {
-		char lwm2m_path_object[6] = "42790/";
-		char lwm2m_path[20];
 
-		snprintf(lwm2m_path, 20,"%s%d", lwm2m_path_object, i);
-		lwm2m_engine_create_obj_inst(lwm2m_path);
+		snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d", lwm2m_path_object, i);
+		lwm2m_engine_create_obj_inst(lwm2m_obj_path);
+
+		for (int j = 0;j < 5; j++){
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4000/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4001/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4002/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4003/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);	
+		}
+		snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 0);
+		lwm2m_engine_create_res_inst(lwm2m_resource_path);
+		snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 1);
+		lwm2m_engine_create_res_inst(lwm2m_resource_path);
+
+		for (int j = 0;j < 4; j++){
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5001/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5002/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5003/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5004/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5005/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5006/%d", lwm2m_obj_path, j);
+			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+		}
 	}
 }
 
