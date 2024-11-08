@@ -69,8 +69,6 @@ static bool data_cb_vibboard(struct bt_data *data, void *user_data){
 				vibboard_aux_aux->TD_machine_state = -2;
 				vibboard_aux_aux->device_state = 1;
 				fill_vibboard_SP_data(&vibboard_aux_aux, data);
-
-
 			}
 			return false;
 		default:
@@ -398,16 +396,16 @@ void fill_vibboard_SP_data(struct vibboard_device **vibboard_device, struct bt_d
 	int Vibboard_Vars_value_index=0;
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->vibboard_mode = int8_val_aux;
-	printk("vibboard_mode: %d\n", (*vibboard_device)->vibboard_mode);
+	printf("vibboard_mode: %d\n", (*vibboard_device)->vibboard_mode);
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->device_state = int8_val_aux;
-	printk("device_state: %d\n", (*vibboard_device)->device_state);
+	printf("device_state: %d\n", (*vibboard_device)->device_state);
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->TD_machine_state = int8_val_aux;
-	printk("TD_machine_state: %d\n", (*vibboard_device)->TD_machine_state);
+	printf("TD_machine_state: %d\n", (*vibboard_device)->TD_machine_state);
 	uint16_val_aux = data->data[Vibboard_Vars_value_index++] << 8 | data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->device_battery_voltage = uint16_val_aux;
-	printk("TD_battery_voltage: %d\n", (*vibboard_device)->device_battery_voltage);
+	printf("TD_battery_voltage: %d\n", (*vibboard_device)->device_battery_voltage);
 	
 	/*---------------TD-------------*/
 	int TD_Features_Carac_value_index=Vibboard_Vars_value_index;
@@ -426,7 +424,7 @@ void fill_vibboard_SP_data(struct vibboard_device **vibboard_device, struct bt_d
 
 		TD_Features_Carac_value_index += 4;
 	}
-	printk("\n");
+	printf("\n");
 	// repeat for y and z axis
 	for (int i = 0; i < TD_NR_FEATURES; i++){
 		int32_val_aux = ((data->data[TD_Features_Carac_value_index] << 24) | (data->data[TD_Features_Carac_value_index + 1] << 16) | (data->data[TD_Features_Carac_value_index + 2] << 8) | (data->data[TD_Features_Carac_value_index + 3]));
