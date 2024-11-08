@@ -81,7 +81,7 @@ static int led_on_off_cb(uint16_t obj_inst_id, uint16_t res_id,
 static int resolve_server_address(void);
 static void create_bl654_sensor_objects(void);
 static void create_vibboard_objects(void);
-static struct float32_value make_float_value(float v);
+static struct float32_value make_float32_value(float v);
 static size_t lwm2m_str_size(const char *s);
 
 /******************************************************************************/
@@ -95,6 +95,7 @@ void lwm2m_client_init(void)
 int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 {
 	int result = 0;
+	int aux_result = 0;
 	LOG_DBG("RC before new messages: %d\n", result);
 	LOG_DBG("LWM2M initialized: %d\n", lwm2m_initialized);
 
@@ -105,8 +106,12 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 		char lwm2m_obj_path[20];
 		char lwm2m_path_object[6] = "42790";
 
-		struct float32_value float_value;
-		s64_t integer_64_value;
+		struct float32_value float32_aux_value;
+		int8_t int_8_val;
+		uint8_t uint_8_val;
+		uint16_t uint_16_val;
+		uint32_t uint_32_val;
+		int32_t int32_t_val;
 
 		/* Vibration data*/
 		for (int i = 0; i < VIBBOARD_NR; i++) {
@@ -114,15 +119,88 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 			if (vibboard_devices[i].device_id != -1) {
 
 				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1000", lwm2m_path_object, vibboard_devices[i].device_id);
-				LOG_DBG("LWM2M path: %s\n", lwm2m_obj_path);
-				integer_64_value = vibboard_devices[i].device_id;
-				result += lwm2m_engine_set_s64(lwm2m_obj_path, &integer_64_value);
+				int_8_val = vibboard_devices[i].device_id;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
 
-				snprintk(lwm2m_obj_path,sizeof(lwm2m_obj_path), "%s/%d/1000", lwm2m_path_object, vibboard_devices[i].device_id);
-				LOG_DBG("LWM2M path: %s\n", lwm2m_obj_path);
-				char string_value[9];
-				memcpy(string_value,vibboard_devices[i].device_name,sizeof(vibboard_devices[i].device_name));
-				result += lwm2m_engine_set_string(lwm2m_obj_path, vibboard_devices[i].device_name);
+				snprintk(lwm2m_obj_path,sizeof(lwm2m_obj_path), "%s/%d/1001", lwm2m_path_object, vibboard_devices[i].device_id);
+				char string_value[14];
+				memcpy(string_value,vibboard_devices[i].device_name,sizeof(string_value));
+				result += lwm2m_engine_set_string(lwm2m_obj_path, string_value);
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1002", lwm2m_path_object, vibboard_devices[i].device_id);
+				int_8_val = vibboard_devices[i].vibboard_mode;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1003", lwm2m_path_object, vibboard_devices[i].device_id);
+				int_8_val = vibboard_devices[i].device_state;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1004", lwm2m_path_object, vibboard_devices[i].device_id);
+				uint_16_val = vibboard_devices[i].device_battery_voltage;
+				result += lwm2m_engine_set_u16(lwm2m_obj_path, uint_16_val);
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/3000", lwm2m_path_object, vibboard_devices[i].device_id);
+				int_8_val = vibboard_devices[i].TD_machine_state;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
+
+				/*-----------TD----------*/
+				for (int j = 0; j < TD_NR_FEATURES; j++) {
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4000/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					uint_8_val = vibboard_devices[i].TD_acc_sp_data_scalars[j];
+					result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4001/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					printf("Floating number 4001: %3.2f\n", vibboard_devices[i].TD_acc_sp_data_x_axis[j]);
+					float32_aux_value = make_float32_value(vibboard_devices[i].TD_acc_sp_data_x_axis[j]);
+					printf("Floating number 4001: %d - %d\n", float32_aux_value.val1, float32_aux_value.val2);
+					result += lwm2m_engine_set_float32(lwm2m_obj_path, &float32_aux_value);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4002/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					printf("Floating number 4002: %3.2f\n", vibboard_devices[i].TD_acc_sp_data_y_axis[j]);
+					float32_aux_value = make_float32_value(vibboard_devices[i].TD_acc_sp_data_y_axis[j]);
+					printf("Floating number 4002: %d - %d\n", float32_aux_value.val1, float32_aux_value.val2);
+					result += lwm2m_engine_set_float32(lwm2m_obj_path, &float32_aux_value);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4003/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					float32_aux_value = make_float32_value(vibboard_devices[i].TD_acc_sp_data_z_axis[j]);
+					result += lwm2m_engine_set_float32(lwm2m_obj_path, &float32_aux_value);
+				}
+
+				/*-----------FD----------*/
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/0", lwm2m_path_object, vibboard_devices[i].device_id);
+				uint_8_val = vibboard_devices[i].FD_acc_data_peaks_freq_scalar;
+				result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+				
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/1", lwm2m_path_object, vibboard_devices[i].device_id);
+				uint_8_val = vibboard_devices[i].FD_acc_data_peaks_amp_scalar;
+				result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+
+				for (int j = 0; j < FD_NR_PEAKS; j++) {
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5001/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_freq_x_axis[j];
+					result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5002/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_amps_x_axis[j];
+					result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5003/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_freq_y_axis[j];
+					result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5004/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_amps_y_axis[j];
+					result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5005/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_freq_z_axis[j];
+					result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+
+					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5006/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[j];
+					aux_result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
+					printk("Aux result: %d \n", aux_result);aux_result=0;
+				}
 			}
 		}
 
@@ -143,23 +221,23 @@ int lwm2m_set_bl654_sensor_data(float temperature, float humidity,
 		struct float32_value float_value;
 
 #ifdef CONFIG_LWM2M_IPSO_TEMP_SENSOR
-		float_value = make_float_value(temperature);
+		float_value = make_float32_value(temperature);
 		result += lwm2m_engine_set_float32("3303/0/5700", &float_value);
 #endif
 
 		/* Temperature is used to test generic sensor */
 #ifdef CONFIG_LWM2M_IPSO_GENERIC_SENSOR
-		float_value = make_float_value(temperature);
+		float_value = make_float32_value(temperature);
 		result += lwm2m_engine_set_float32("3303/0/5700", &float_value);
 #endif
 
 #ifdef CONFIG_LWM2M_IPSO_HUMIDITY_SENSOR
-		float_value = make_float_value(humidity);
+		float_value = make_float32_value(humidity);
 		result += lwm2m_engine_set_float32("3304/0/5700", &float_value);
 #endif
 
 #ifdef CONFIG_LWM2M_IPSO_PRESSURE_SENSOR
-		float_value = make_float_value(pressure);
+		float_value = make_float32_value(pressure);
 		result += lwm2m_engine_set_float32("3323/0/5700", &float_value);
 #endif
 	}
@@ -267,8 +345,8 @@ static int lwm2m_setup(const char *serial_number, const char *imei)
 	lwm2m_engine_set_res_data("3/0/8/1", &usb_ma, sizeof(usb_ma), 0);
 
 	/* IPSO: Light Control object */
-	lwm2m_engine_create_obj_inst("3311/0");
-	lwm2m_engine_register_post_write_callback("3311/0/5850", led_on_off_cb);
+	// lwm2m_engine_create_obj_inst("3311/0");
+	// lwm2m_engine_register_post_write_callback("3311/0/5850", led_on_off_cb);
 
 	/* setup objects for remote sensors */
 	create_bl654_sensor_objects();
@@ -448,7 +526,7 @@ static void create_vibboard_objects(void){
 		snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d", lwm2m_path_object, i);
 		lwm2m_engine_create_obj_inst(lwm2m_obj_path);
 
-		for (int j = 0;j < 5; j++){
+		for (int j = 0;j < TD_NR_FEATURES; j++){
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4000/%d", lwm2m_obj_path, j);
 			lwm2m_engine_create_res_inst(lwm2m_resource_path);
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4001/%d", lwm2m_obj_path, j);
@@ -463,7 +541,7 @@ static void create_vibboard_objects(void){
 		snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 1);
 		lwm2m_engine_create_res_inst(lwm2m_resource_path);
 
-		for (int j = 0;j < 4; j++){
+		for (int j = 0;j < FD_NR_PEAKS; j++){
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5001/%d", lwm2m_obj_path, j);
 			lwm2m_engine_create_res_inst(lwm2m_resource_path);
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5002/%d", lwm2m_obj_path, j);
@@ -480,7 +558,7 @@ static void create_vibboard_objects(void){
 	}
 }
 
-static struct float32_value make_float_value(float v)
+static struct float32_value make_float32_value(float v)
 {
 	struct float32_value f;
 

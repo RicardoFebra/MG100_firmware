@@ -58,11 +58,11 @@ config SCAN_FOR_VIBBOARD
 
 config CLOUD_QUEUE_SIZE
     int "The size of queue for sending messages to AWS or LWM2M client"
-    default 32
+    default 40
 
 config CLOUD_PURGE_THRESHOLD
     int "The threshold at which the cloud queue is purged."
-    default 24
+    default 40
 
 config CLOUD_FIFO_CHECK_RATE_SECONDS
     int "The rate at which the cloud fifo is checked"
