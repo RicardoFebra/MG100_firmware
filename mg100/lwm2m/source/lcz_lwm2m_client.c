@@ -34,7 +34,7 @@ LOG_MODULE_REGISTER(lwm2m_client);
 
 #include "stdio.h"
 
-#define ENPOINT_UNIQUE_CODE "354616090711173"
+#define ENPOINT_UNIQUE_CODE "02"
 
 /******************************************************************************/
 /* Local Constant, Macro and Type Definitions                                 */
@@ -99,7 +99,8 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 	LOG_DBG("RC before new messages: %d\n", result);
 	LOG_DBG("LWM2M initialized: %d\n", lwm2m_initialized);
 
-	print_vibboard_table(vibboard_devices);
+	printk("lwm2m_set_vibboard_data\n");
+	//print_vibboard_table(vibboard_devices);
 
 	if (lwm2m_initialized) {
 
@@ -116,6 +117,7 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 		/* Vibration data*/
 		for (int i = 0; i < VIBBOARD_NR; i++) {
 			// 42790/Vibboard_id/object
+			printk("Vibboard %d\n", vibboard_devices[i].device_id);
 			if (vibboard_devices[i].device_id != -1) {
 
 				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/1000", lwm2m_path_object, vibboard_devices[i].device_id);
@@ -145,20 +147,16 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 
 				/*-----------TD----------*/
 				for (int j = 0; j < TD_NR_FEATURES; j++) {
-					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4000/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
-					uint_8_val = vibboard_devices[i].TD_acc_sp_data_scalars[j];
-					result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+					// snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4000/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
+					// uint_8_val = vibboard_devices[i].TD_acc_sp_data_scalars[j];
+					// result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
 
 					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4001/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
-					printf("Floating number 4001: %3.2f\n", vibboard_devices[i].TD_acc_sp_data_x_axis[j]);
 					float32_aux_value = make_float32_value(vibboard_devices[i].TD_acc_sp_data_x_axis[j]);
-					printf("Floating number 4001: %d - %d\n", float32_aux_value.val1, float32_aux_value.val2);
 					result += lwm2m_engine_set_float32(lwm2m_obj_path, &float32_aux_value);
 
 					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4002/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
-					printf("Floating number 4002: %3.2f\n", vibboard_devices[i].TD_acc_sp_data_y_axis[j]);
 					float32_aux_value = make_float32_value(vibboard_devices[i].TD_acc_sp_data_y_axis[j]);
-					printf("Floating number 4002: %d - %d\n", float32_aux_value.val1, float32_aux_value.val2);
 					result += lwm2m_engine_set_float32(lwm2m_obj_path, &float32_aux_value);
 
 					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/4003/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
@@ -167,13 +165,13 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 				}
 
 				/*-----------FD----------*/
-				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/0", lwm2m_path_object, vibboard_devices[i].device_id);
-				uint_8_val = vibboard_devices[i].FD_acc_data_peaks_freq_scalar;
-				result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+				// snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/0", lwm2m_path_object, vibboard_devices[i].device_id);
+				// uint_8_val = vibboard_devices[i].FD_acc_data_peaks_freq_scalar;
+				// result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
 				
-				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/1", lwm2m_path_object, vibboard_devices[i].device_id);
-				uint_8_val = vibboard_devices[i].FD_acc_data_peaks_amp_scalar;
-				result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
+				// snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5000/1", lwm2m_path_object, vibboard_devices[i].device_id);
+				// uint_8_val = vibboard_devices[i].FD_acc_data_peaks_amp_scalar;
+				// result += lwm2m_engine_set_u8(lwm2m_obj_path, uint_8_val);
 
 				for (int j = 0; j < FD_NR_PEAKS; j++) {
 					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5001/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
@@ -199,9 +197,21 @@ int lwm2m_set_vibboard_data(struct vibboard_device *vibboard_devices)
 					snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/5006/%d", lwm2m_path_object, vibboard_devices[i].device_id, j);
 					int32_t_val = vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[j];
 					aux_result += lwm2m_engine_set_s32(lwm2m_obj_path, int32_t_val);
-					printk("Aux result: %d \n", aux_result);aux_result=0;
 				}
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/8000", lwm2m_path_object, vibboard_devices[i].device_id);
+				int_8_val = vibboard_devices[i].closer_beacon_id;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
+
+				printk("Closer beacon id: %d \n", vibboard_devices[i].closer_beacon_id);
+
+				snprintk(lwm2m_obj_path, sizeof(lwm2m_obj_path), "%s/%d/8001", lwm2m_path_object, vibboard_devices[i].device_id);
+				int_8_val = vibboard_devices[i].closer_beacon_rssi;
+				result += lwm2m_engine_set_s8(lwm2m_obj_path, int_8_val);
+				
+				printk("Closer beacon rssi: %d \n", vibboard_devices[i].closer_beacon_rssi);
 			}
+			printk("Aux result: %d \n", aux_result);aux_result=0;
 		}
 
 	LOG_DBG("RC after new messages: %d\n", result);
@@ -527,8 +537,8 @@ static void create_vibboard_objects(void){
 		lwm2m_engine_create_obj_inst(lwm2m_obj_path);
 
 		for (int j = 0;j < TD_NR_FEATURES; j++){
-			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4000/%d", lwm2m_obj_path, j);
-			lwm2m_engine_create_res_inst(lwm2m_resource_path);
+			// snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4000/%d", lwm2m_obj_path, j);
+			// lwm2m_engine_create_res_inst(lwm2m_resource_path);
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4001/%d", lwm2m_obj_path, j);
 			lwm2m_engine_create_res_inst(lwm2m_resource_path);
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4002/%d", lwm2m_obj_path, j);
@@ -536,10 +546,10 @@ static void create_vibboard_objects(void){
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/4003/%d", lwm2m_obj_path, j);
 			lwm2m_engine_create_res_inst(lwm2m_resource_path);	
 		}
-		snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 0);
-		lwm2m_engine_create_res_inst(lwm2m_resource_path);
-		snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 1);
-		lwm2m_engine_create_res_inst(lwm2m_resource_path);
+		// snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 0);
+		// lwm2m_engine_create_res_inst(lwm2m_resource_path);
+		// snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5000/%d", lwm2m_obj_path, 1);
+		// lwm2m_engine_create_res_inst(lwm2m_resource_path);
 
 		for (int j = 0;j < FD_NR_PEAKS; j++){
 			snprintk(lwm2m_resource_path, sizeof(lwm2m_resource_path), "%s/5001/%d", lwm2m_obj_path, j);
@@ -562,8 +572,10 @@ static struct float32_value make_float32_value(float v)
 {
 	struct float32_value f;
 
-	f.val1 = (int32_t)v;
-	f.val2 = (int32_t)(LWM2M_FLOAT32_DEC_MAX * (v - f.val1));
+	f.val1 = (s32_t)v;
+	//f.val2 = (s32_t)(LWM2M_FLOAT32_DEC_MAX * (v - f.val1));
+	f.val2 = (s32_t)((v - f.val1) * LWM2M_FLOAT32_DEC_MAX + 0.5); // multiply decimal portion by 1000000 and round
+	f.val2 = f.val2 / 10000 * 10000; // truncate to 2 decimal places with LWM2M_FLOAT32_DEC_MAX=1000000
 
 	return f;
 }

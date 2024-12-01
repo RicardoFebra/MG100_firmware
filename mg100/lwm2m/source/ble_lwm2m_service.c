@@ -50,6 +50,8 @@ static const struct lwm2m_config DEFAULT_CONFIG = {
 	//.peer_url = "uwterminalx.lairdconnect.com"
 	.client_id = "endpoint",
 	.peer_url = "iot.istartlab.tecnico.ulisboa.pt"
+	// .client_id = "endpoint",
+	// .peer_url = "demo.thingsboard.io"
 };
 
 /******************************************************************************/

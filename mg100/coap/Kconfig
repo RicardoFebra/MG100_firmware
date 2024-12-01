@@ -93,7 +93,8 @@ config COAP_FOTA_PRODUCT
 
 config COAP_FOTA_PORT
     int "Port used for CoAP communication"
-    default 5684
+    #default 56830 # demo thingsboard
+    default 5684 # istartlab thingsboard
 
 config COAP_FOTA_CA_TAG
     int "Tag used by TLS for referencing root CA credentials"

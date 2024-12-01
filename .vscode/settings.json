@@ -26,6 +26,7 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "system_error": "c"
+        "system_error": "c",
+        "stdlib.h": "c"
     }
 }

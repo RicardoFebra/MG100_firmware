@@ -1,6 +1,6 @@
 #include "sensor_adv_format.h"
 
-#define VIBBOARD_NR 6
+#define VIBBOARD_NR 4
 #define TD_NR_FEATURES 5
 #define FD_NR_PEAKS 4
 
@@ -12,6 +12,10 @@ struct vibboard_device{
     int8_t vibboard_mode;
     int8_t device_state;
     uint16_t device_battery_voltage;
+
+    int8_t closer_beacon_id;
+    int8_t closer_beacon_rssi;
+
 
     // Machine state depends on the application, init in -1
     int8_t TD_machine_state;

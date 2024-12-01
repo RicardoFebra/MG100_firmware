@@ -146,7 +146,7 @@ config SENSOR_LOG_MAX_SIZE
 
 config SENSOR_SUBSCRIPTION_DELAY_SECONDS
     int "The number of seconds to wait after a sensor is whitelisted before subscribing to the delta and get topics."
-    default 10
+    default 15
     range 6 60
     help
         The server needs time to generate the sensor object.

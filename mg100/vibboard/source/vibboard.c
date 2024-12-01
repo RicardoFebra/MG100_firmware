@@ -97,23 +97,18 @@ static void device_found(const bt_addr_le_t *addr, s8_t rssi, u8_t type,
 	struct vibboard_device vibboard_aux_aux;
 
 	bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
-	printk("[DEVICE]: %s, AD evt type %u, AD data len %u, RSSI %i\n",
-	       addr_str, type, ad->len, rssi);
-	// print data in hex
-	printk("Data: ");
-	for (int i = 0; i < ad->len; i++) {
-		printk("%x ", ad->data[i]);
-	}
-	printk("\n");
+	// printk("[DEVICE]: %s, AD evt type %u, AD data len %u, RSSI %i\n",
+	//        addr_str, type, ad->len, rssi);
+	// // print data in hex
+	// printk("Data: ");
+	// for (int i = 0; i < ad->len; i++) {
+	// 	printk("%x ", ad->data[i]);
+	// }
+	// printk("\n");
 	MatchVibboardBT_ID(ad, &vibboard_aux_aux);
 	GetVibboardBT_Data(ad, &vibboard_aux_aux);
 	//setting up the bt_data_parse function and prints it.
 	//bt_data_parse(ad, data_cb_vibboard, &vibboard_aux_aux);
-
-	/* connect only to devices in close proximity */
-	if (rssi < -70) {
-		return;
-	}
 
 	// if (bt_le_scan_stop()) {
 	// 	return;
@@ -136,15 +131,18 @@ void vibboard_init_table(struct vibboard_device *vibboard_devices){
 		vibboard_devices[i].vibboard_mode = -99;
 		vibboard_devices[i].device_state = -1;
 		vibboard_devices[i].TD_machine_state = -1;
+		vibboard_devices[i].device_battery_voltage = 0;
+		vibboard_devices[i].closer_beacon_id = -1;
+		vibboard_devices[i].closer_beacon_rssi = -127;
 		memcpy(vibboard_devices[i].device_name, "NotAssigned", 15);
 		for (int j = 0; j < TD_NR_FEATURES; j++){
-			vibboard_devices[i].TD_acc_sp_data_scalars[j] = -1;
-			vibboard_devices[i].TD_acc_sp_data_x_axis[j] = -1;
-			vibboard_devices[i].TD_acc_sp_data_y_axis[j] = -1;
-			vibboard_devices[i].TD_acc_sp_data_z_axis[j] = -1;
+			vibboard_devices[i].TD_acc_sp_data_scalars[j] = 100;
+			vibboard_devices[i].TD_acc_sp_data_x_axis[j] = 100;
+			vibboard_devices[i].TD_acc_sp_data_y_axis[j] = 100;
+			vibboard_devices[i].TD_acc_sp_data_z_axis[j] = 100;
 		}
-		vibboard_devices[i].FD_acc_data_peaks_freq_scalar = 0;
-		vibboard_devices[i].FD_acc_data_peaks_amp_scalar = 0;
+		vibboard_devices[i].FD_acc_data_peaks_freq_scalar = 1;
+		vibboard_devices[i].FD_acc_data_peaks_amp_scalar = 1;
 		for (int j = 0; j < FD_NR_PEAKS; j++){
 			vibboard_devices[i].FD_acc_data_peaks_freq_x_axis[j] = 0;
 			vibboard_devices[i].FD_acc_data_peaks_amps_x_axis[j] = 0;
@@ -169,39 +167,40 @@ void vibboard_update_table(struct vibboard_device vibboard_aux_aux){
 
 	if (vibboard_aux_aux.device_id == -1){
 		return;
-	}else{
-		// update the device in the table
-		vibboard_devices_aux[vibboard_aux_aux.device_id].device_id = vibboard_aux_aux.device_id;
-		memcpy(vibboard_devices_aux[vibboard_aux_aux.device_id].device_name, vibboard_aux_aux.device_name, sizeof(vibboard_aux_aux.device_name));
-		vibboard_devices_aux[vibboard_aux_aux.device_id].vibboard_mode = vibboard_aux_aux.vibboard_mode;
-		vibboard_devices_aux[vibboard_aux_aux.device_id].device_state = vibboard_aux_aux.device_state;
-		vibboard_devices_aux[vibboard_aux_aux.device_id].TD_machine_state = vibboard_aux_aux.TD_machine_state;
-		vibboard_devices_aux[vibboard_aux_aux.device_id].device_battery_voltage = vibboard_aux_aux.device_battery_voltage;
-		vibboard_devices_aux[vibboard_aux_aux.device_id].last_relative_update_time = k_uptime_get();
 	}
 
-	if(vibboard_aux_aux.device_state == 1){
+	// update the device in the table
+	vibboard_devices_aux[vibboard_aux_aux.device_id].device_id = vibboard_aux_aux.device_id;
+	memcpy(vibboard_devices_aux[vibboard_aux_aux.device_id].device_name, vibboard_aux_aux.device_name, sizeof(vibboard_aux_aux.device_name));
+	vibboard_devices_aux[vibboard_aux_aux.device_id].vibboard_mode = vibboard_aux_aux.vibboard_mode;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].device_state = vibboard_aux_aux.device_state;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].TD_machine_state = vibboard_aux_aux.TD_machine_state;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].device_battery_voltage = vibboard_aux_aux.device_battery_voltage;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].last_relative_update_time = k_uptime_get();
 
-		for (int i = 0; i < TD_NR_FEATURES; i++){
-			vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_scalars[i] = vibboard_aux_aux.TD_acc_sp_data_scalars[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_x_axis[i] = vibboard_aux_aux.TD_acc_sp_data_x_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_y_axis[i] = vibboard_aux_aux.TD_acc_sp_data_y_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_z_axis[i] = vibboard_aux_aux.TD_acc_sp_data_z_axis[i];
-		}
+	vibboard_devices_aux[vibboard_aux_aux.device_id].closer_beacon_id = vibboard_aux_aux.closer_beacon_id;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].closer_beacon_rssi = vibboard_aux_aux.closer_beacon_rssi;
 
-		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_scalar = vibboard_aux_aux.FD_acc_data_peaks_freq_scalar;
-		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amp_scalar = vibboard_aux_aux.FD_acc_data_peaks_amp_scalar;
-
-		for (int i = 0; i < FD_NR_PEAKS; i++){
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_x_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_x_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_x_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_x_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_y_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_y_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_y_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_y_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_z_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_z_axis[i];
-			vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_z_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_z_axis[i];
-		}
-
+	for (int i = 0; i < TD_NR_FEATURES; i++){
+		vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_scalars[i] = vibboard_aux_aux.TD_acc_sp_data_scalars[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_x_axis[i] = vibboard_aux_aux.TD_acc_sp_data_x_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_y_axis[i] = vibboard_aux_aux.TD_acc_sp_data_y_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].TD_acc_sp_data_z_axis[i] = vibboard_aux_aux.TD_acc_sp_data_z_axis[i];
 	}
+
+	vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_scalar = vibboard_aux_aux.FD_acc_data_peaks_freq_scalar;
+	vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amp_scalar = vibboard_aux_aux.FD_acc_data_peaks_amp_scalar;
+
+	for (int i = 0; i < FD_NR_PEAKS; i++){
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_x_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_x_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_x_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_x_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_y_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_y_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_y_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_y_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_freq_z_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_freq_z_axis[i];
+		vibboard_devices_aux[vibboard_aux_aux.device_id].FD_acc_data_peaks_amps_z_axis[i] = vibboard_aux_aux.FD_acc_data_peaks_amps_z_axis[i];
+	}
+
+	//printk("vibboard_update_table: Device ID = %d\n", vibboard_devices_aux[vibboard_aux_aux.device_id].device_id);
 
 	VibboardMsg_t *pMsg = (VibboardMsg_t *)BufferPool_TryToTake(sizeof(VibboardMsg_t));	
 	if (pMsg == NULL) {
@@ -210,6 +209,8 @@ void vibboard_update_table(struct vibboard_device vibboard_aux_aux){
 	pMsg->header.msgCode = FMC_VIBBOARD_EVENT;
 	pMsg->header.rxId = FWK_ID_CLOUD;
 	FRAMEWORK_MSG_SEND(pMsg);
+
+	//print_vibboard_table(vibboard_devices_aux);
 }
 
 void print_vibboard_table(struct vibboard_device *vibboard_devices){
@@ -219,19 +220,37 @@ void print_vibboard_table(struct vibboard_device *vibboard_devices){
 		printk("Vibboard mode: %d ", vibboard_devices[i].vibboard_mode);
 		printk("Vibboard state: %d ", vibboard_devices[i].device_state);
 		printk("Device voltage: %d ", vibboard_devices[i].device_battery_voltage);
-		printk("TD machine state: %d ", vibboard_devices[i].TD_machine_state);
-		printk("TD acc sp data x axis 1st: %d ", (int)vibboard_devices[i].TD_acc_sp_data_x_axis[0]);
-		printk("TD acc sp data x axis 2nd: %d ", (int)vibboard_devices[i].TD_acc_sp_data_x_axis[1]);
-		printk("TD acc sp data x axis 3nd: %d ", (int)vibboard_devices[i].TD_acc_sp_data_x_axis[2]);
-		printk("TD acc sp data x axis 4nd: %d ", (int)vibboard_devices[i].TD_acc_sp_data_x_axis[3]);
-		printk("TD acc sp data x axis 5nd: %d ", (int)vibboard_devices[i].TD_acc_sp_data_x_axis[4]);
-		printk("FD acc data peaks freq x axis 1st: %d ", vibboard_devices[i].FD_acc_data_peaks_freq_x_axis[0]);
-		printk("FD acc data peaks amps x axis 1st: %d ", vibboard_devices[i].FD_acc_data_peaks_amps_x_axis[0]);
-		printk("FD acc data peaks amps z axis 1st: %d ", vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[0]);
-		printk("FD acc data peaks amps z axis 2st: %d ", vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[1]);
-		printk("FD acc data peaks amps z axis 3st: %d ", vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[2]);
-		printk("FD acc data peaks amps z axis 4st: %d ", vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[3]);
+		printk("Closer beacon id: %d ", vibboard_devices[i].closer_beacon_id);
+		printk("Closer beacon rssi: %d ", vibboard_devices[i].closer_beacon_rssi);
+		printk("TD machine state: %d \n", vibboard_devices[i].TD_machine_state);
 		printk("\n");
+		for (int j = 0; j < TD_NR_FEATURES; j++){
+			printk("TD acc sp data x axis %dnd: %d ", j, (int)vibboard_devices[i].TD_acc_sp_data_x_axis[j]);
+		}
+		printk("\n");
+		for (int j = 0; j < TD_NR_FEATURES; j++){
+			printk("TD acc sp data y axis %dnd: %d ", j, (int)vibboard_devices[i].TD_acc_sp_data_y_axis[j]);
+		}
+		printk("\n");
+		for (int j = 0; j < TD_NR_FEATURES; j++){
+			printk("TD acc sp data z axis %dnd: %d ", j, (int)vibboard_devices[i].TD_acc_sp_data_z_axis[j]);
+		}
+		printk("\n");
+		for (int j = 0; j < FD_NR_PEAKS; j++){
+			printk("FD acc data peaks freq x axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_freq_x_axis[j]);
+			printk("FD acc data peaks amps x axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_amps_x_axis[j]);
+		}
+		printk("\n");
+		for (int j = 0; j < FD_NR_PEAKS; j++){
+			printk("FD acc data peaks freq y axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_freq_y_axis[j]);
+			printk("FD acc data peaks amps y axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_amps_y_axis[j]);
+		}
+		printk("\n");
+		for (int j = 0; j < FD_NR_PEAKS; j++){
+			printk("FD acc data peaks freq z axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_freq_z_axis[j]);
+			printk("FD acc data peaks amps z axis %dnd: %d ",j , vibboard_devices[i].FD_acc_data_peaks_amps_z_axis[j]);
+		}
+		printk("\n----------\n");
 	}
 }
 
@@ -252,7 +271,7 @@ bool GetVibboardBT_Data(struct net_buf_simple *ad, struct vibboard_device *user_
 	// copy payload to bt_data_aux data but ignore first 2 bytes
 	memcpy(bt_data_aux.data, manHandle.pPayload + 2, bt_data_aux.data_len);
 
-	printk("GetVibboardBT_Data: Size = %d, Type = %d\n", bt_data_aux.data_len, bt_data_aux.type);
+	//printk("GetVibboardBT_Data: Size = %d, Type = %d\n", bt_data_aux.data_len, bt_data_aux.type);
 
 	if ((manHandle.size) <= 31) {
 		vibboard_aux_aux->device_state = 0;
@@ -279,7 +298,7 @@ bool MatchVibboardBT_ID(struct net_buf_simple *ad, struct vibboard_device *vibbo
 	memcpy(device_id_str, vibboard_aux_aux->device_name, 2);
 	vibboard_aux_aux->device_id = atoi(device_id_str);
 
-	printk("MatchVibboardBT_ID: Device ID = %d\n", vibboard_aux_aux->device_id);
+	//printk("MatchVibboardBT_ID: Device ID = %d\n", vibboard_aux_aux->device_id);
 
 	return true;
 }
@@ -318,7 +337,6 @@ void start_scan_vibboard(struct vibboard_device* vibboard_devices){
 		.window     = BT_GAP_SCAN_FAST_WINDOW,
 	};
 
-	/* This demo doesn't require active scan */
 	err = bt_le_scan_start(&scan_param, device_found);
 	if (err) {
 		printk("Scanning failed to start (err %d)\n", err);
@@ -326,7 +344,7 @@ void start_scan_vibboard(struct vibboard_device* vibboard_devices){
 
 	// get device data
 
-	printk("Scanning successfully started\n");
+	//printk("Scanning successfully started\n");
 
 }
 
@@ -338,7 +356,7 @@ static void connected(struct bt_conn *conn, u8_t err)
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 
 	if (err) {
-		printk("Failed to connect to %s (%u)\n", addr, err);
+		//printk("Failed to connect to %s (%u)\n", addr, err);
 
 		bt_conn_unref(default_conn);
 		default_conn = NULL;
@@ -351,7 +369,7 @@ static void connected(struct bt_conn *conn, u8_t err)
 		return;
 	}
 
-	printk("Connected: %s\n", addr);
+	//printk("Connected: %s\n", addr);
 
 	bt_conn_disconnect(conn, BT_HCI_ERR_REMOTE_USER_TERM_CONN);
 }
@@ -366,7 +384,7 @@ static void disconnected(struct bt_conn *conn, u8_t reason)
 
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 
-	printk("Disconnected: %s (reason 0x%02x)\n", addr, reason);
+	//printk("Disconnected: %s (reason 0x%02x)\n", addr, reason);
 
 	bt_conn_unref(default_conn);
 	default_conn = NULL;
@@ -386,26 +404,32 @@ void fill_vibboard_SP_data(struct vibboard_device **vibboard_device, struct bt_d
 	int8_t int8_val_aux;
 	uint16_t uint16_val_aux;
 
-	printk("[Important] Filling vibboard SP data\n");
-	printk("Data fill_vibboard_SP_data: ");
-	for (int i = 0; i < data->data_len; i++) {
-		printk("%x ", data->data[i]);
-	}
-	printk("\n");
+	printk("[Important] Filling vibboard %d SP data\n", (*vibboard_device)->device_id);
+	// printk("Data fill_vibboard_SP_data: ");
+	// for (int i = 0; i < data->data_len; i++) {
+	// 	printk("%x ", data->data[i]);
+	// }
+	//printk("\n");
 	// fill the vibboard device struct with the data from the advertisement
 	int Vibboard_Vars_value_index=0;
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->vibboard_mode = int8_val_aux;
-	printf("vibboard_mode: %d\n", (*vibboard_device)->vibboard_mode);
+	//printk("vibboard_mode: %d\n", (*vibboard_device)->vibboard_mode);
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->device_state = int8_val_aux;
-	printf("device_state: %d\n", (*vibboard_device)->device_state);
+	printk("\tdevice_state: %d\n", (*vibboard_device)->device_state);
 	int8_val_aux = data->data[Vibboard_Vars_value_index++];
 	(*vibboard_device)->TD_machine_state = int8_val_aux;
-	printf("TD_machine_state: %d\n", (*vibboard_device)->TD_machine_state);
-	uint16_val_aux = data->data[Vibboard_Vars_value_index++] << 8 | data->data[Vibboard_Vars_value_index++];
+	//printk("TD_machine_state: %d\n", (*vibboard_device)->TD_machine_state);
+	uint16_val_aux = data->data[Vibboard_Vars_value_index] << 8 | data->data[Vibboard_Vars_value_index+1];Vibboard_Vars_value_index+=2;
 	(*vibboard_device)->device_battery_voltage = uint16_val_aux;
-	printf("TD_battery_voltage: %d\n", (*vibboard_device)->device_battery_voltage);
+	//printk("TD_battery_voltage: %d\n", (*vibboard_device)->device_battery_voltage);
+	int8_val_aux = data->data[Vibboard_Vars_value_index++];
+	(*vibboard_device)->closer_beacon_id = int8_val_aux;
+	//printk("closer_beacon_id: %d\n", (*vibboard_device)->closer_beacon_id);
+	int8_val_aux = data->data[Vibboard_Vars_value_index++];
+	(*vibboard_device)->closer_beacon_rssi = int8_val_aux;
+	//printk("closer_beacon_rssi: %d\n", (*vibboard_device)->closer_beacon_rssi);
 	
 	/*---------------TD-------------*/
 	int TD_Features_Carac_value_index=Vibboard_Vars_value_index;
@@ -420,61 +444,61 @@ void fill_vibboard_SP_data(struct vibboard_device **vibboard_device, struct bt_d
 		int32_val_aux = ((data->data[TD_Features_Carac_value_index] << 24) | (data->data[TD_Features_Carac_value_index + 1] << 16) | (data->data[TD_Features_Carac_value_index + 2] << 8) | (data->data[TD_Features_Carac_value_index + 3]));
 		// divide by the scalar
 		(*vibboard_device)->TD_acc_sp_data_x_axis[i] = (float)int32_val_aux / (*vibboard_device)->TD_acc_sp_data_scalars[i];
-		printf("TD Value x axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_x_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
+		//printk("TD Value x axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_x_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
 
 		TD_Features_Carac_value_index += 4;
 	}
-	printf("\n");
+	//printk("\n");
 	// repeat for y and z axis
 	for (int i = 0; i < TD_NR_FEATURES; i++){
 		int32_val_aux = ((data->data[TD_Features_Carac_value_index] << 24) | (data->data[TD_Features_Carac_value_index + 1] << 16) | (data->data[TD_Features_Carac_value_index + 2] << 8) | (data->data[TD_Features_Carac_value_index + 3]));
 		(*vibboard_device)->TD_acc_sp_data_y_axis[i] = (float)int32_val_aux / (*vibboard_device)->TD_acc_sp_data_scalars[i];
-		printf("TD Value y axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_y_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
+		//printk("TD Value y axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_y_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
 
 		TD_Features_Carac_value_index += 4;
 	}
-	printf("\n");
+	//printk("\n");
 	for (int i = 0; i < TD_NR_FEATURES; i++){
 		int32_val_aux = ((data->data[TD_Features_Carac_value_index] << 24) | (data->data[TD_Features_Carac_value_index + 1] << 16) | (data->data[TD_Features_Carac_value_index + 2] << 8) | (data->data[TD_Features_Carac_value_index + 3]));
 		(*vibboard_device)->TD_acc_sp_data_z_axis[i] = (float)int32_val_aux / (*vibboard_device)->TD_acc_sp_data_scalars[i];
-		printf("TD Value z axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_z_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
+		//printk("TD Value z axis: %3.2f ,transmitted: %d,  Hexadecimal : %x %x %x %x\t",(*vibboard_device)->TD_acc_sp_data_z_axis[i],  int32_val_aux, data->data[TD_Features_Carac_value_index], data->data[TD_Features_Carac_value_index + 1], data->data[TD_Features_Carac_value_index + 2], data->data[TD_Features_Carac_value_index + 3]);
 
 		TD_Features_Carac_value_index += 4;
 	}
-	printf("\n");
+	//printk("\n");
 	/*---------------FD-------------*/
 	int FD_Features_Carac_value_index=TD_Features_Carac_value_index;
 	// get the peaks
 	// x axis
 	for (int i = 0; i < FD_NR_PEAKS; i++){
 		(*vibboard_device)->FD_acc_data_peaks_freq_x_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Frequency x axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_x_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Frequency x axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_x_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;
 		(*vibboard_device)->FD_acc_data_peaks_amps_x_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Amplitude x axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_amps_x_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Amplitude x axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_amps_x_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;
 	}
 	// y axis
 	for (int i = 0; i < FD_NR_PEAKS; i++){
 		(*vibboard_device)->FD_acc_data_peaks_freq_y_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Frequency y axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_y_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Frequency y axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_y_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;
 		(*vibboard_device)->FD_acc_data_peaks_amps_y_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Amplitude y axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_freq_y_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Amplitude y axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_amps_y_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;	
 	}
 	// z axis
 	for (int i = 0; i < FD_NR_PEAKS; i++){
 		(*vibboard_device)->FD_acc_data_peaks_freq_z_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Frequency z axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_z_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Frequency z axis: %d, Hexadecimal : %x %x %x %x\t", (*vibboard_device)->FD_acc_data_peaks_freq_z_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;
 		(*vibboard_device)->FD_acc_data_peaks_amps_z_axis[i] = ((data->data[FD_Features_Carac_value_index] << 24) | (data->data[FD_Features_Carac_value_index + 1] << 16) | (data->data[FD_Features_Carac_value_index + 2] << 8) | (data->data[FD_Features_Carac_value_index + 3]));
-		printk("FD Amplitude z axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_freq_z_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
+		//printk("FD Amplitude z axis: %d, Hexadecimal : %x %x %x %x\n", (*vibboard_device)->FD_acc_data_peaks_amps_z_axis[i], data->data[FD_Features_Carac_value_index], data->data[FD_Features_Carac_value_index + 1], data->data[FD_Features_Carac_value_index + 2], data->data[FD_Features_Carac_value_index + 3]);
 		
 		FD_Features_Carac_value_index += 4;
 	}
